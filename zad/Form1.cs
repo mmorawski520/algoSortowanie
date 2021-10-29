@@ -99,10 +99,15 @@ namespace zad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Ladowanie();
+            //Ladowanie();
 
             sortowanie_przez_wstawianie(tablica1, tablica1.Length);
-           // Sortowanie(tablica1,tablica1.Length);
+         
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Sortowanie(tablica1, tablica1.Length);
         }
     }
 }
