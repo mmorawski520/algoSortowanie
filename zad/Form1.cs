@@ -13,126 +13,99 @@ using System.IO;
 namespace zad
 {
     public partial class Form1 : Form
-    {
-        int[] tablica1 = { 1, 4, 5, 6, 7, 1, 5 };
-      //  DateTime start;
-        //DateTime koniec;
+    {   
+        //Ta zmienna przechowuje wczytana tablice przekazuje ja do funkcji/metod i nie zmieniam jej wartosci
+        int[]tempArray;
+        //Ta zmienna przechowuje posortowana tablice przekazuje ja do funkcji/metod aby zmienic jej wartosc
+        int[] sortedArray;
         public Form1()
         {
             InitializeComponent();
         }
-
-        void Sortowanie(int []tab, int size)
+        //ten void wczytuje dane z pliku wybranego przez uzytkownika
+        void loading()
         {
-            int temp, j;
-            var start = DateTime.Now;
-            for (int i = 1; i < size; i++)
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                temp = tab[i];
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
 
-                for (j = i - 1; j >= 0 && tab[j] > temp; j--)
-                    tab[j + 1] = tab[j];
-
-                tab[j + 1] = temp;
-            }
-            var koniec = DateTime.Now;
-            label2.Text = (koniec-start).TotalMilliseconds.ToString();
-            Wypisywanie(tab,size);
-        }
-
-        void sortowanie_przez_wstawianie(int []tab, int n)
-        {
-            int pom, j;
-            var start = DateTime.Now;
-
-            for (int i = 1; i < n; i++)
-            {
-                //wstawienie elementu w odpowiednie miejsce
-                pom = tab[i]; //ten element będzie wstawiony w odpowiednie miejsce
-                j = i - 1;
-
-                //przesuwanie elementów większych od pom
-
-                while (j >= 0 && tab[j] > pom)
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    tab[j + 1] = tab[j]; //przesuwanie elementów
-                    --j;
-                }
-                tab[j + 1] = pom; //wstawienie pom w odpowiednie miejsce
-            }
 
-           var  koniec = DateTime.Now;
-            label2.Text = (koniec - start).TotalMilliseconds.ToString();
-        }
+                    filePath = openFileDialog.FileName;
 
-        void Sortowanie3(int []d,int N) {
-            int j,i,x;
+                    int i = 0;
+                    string ln;
+                    var fileStream = openFileDialog.OpenFile();
 
-            var start = DateTime.Now;
-
-            for (j = N - 2; j >= 0; j--)
-            {
-                x = d[j];
-                i = j + 1;
-                while ((i < N) && (x > d[i]))
-                {
-                    d[i - 1] = d[i];
-                    i++;
-                }
-                d[i - 1] = x;
-            }
-            var koniec = DateTime.Now;
-            label2.Text = label2.Text = (koniec - start).TotalMilliseconds.ToString();
-        }
-
-        void Wypisywanie(int[] tab, int size)
-        {
-            label1.Text = "";
-            for (int i = 1; i < size; i++)
-            {
-                label1.Text += "\n " + tab[i];
-            }
-        }
-
-        void Ladowanie() {
-            
-            using (StreamReader file = new StreamReader("C:/Users/student/Desktop/dane.txt"))
-            {
-                /*
-                int counter = 0;
-                //string ln;
-
-                string[] lines = File.ReadAllLines("C:/Users/student/Desktop/dane.txt");
-                foreach (string line in lines)
-                {
-                    
-                   
-                    if (line != null && line != "")
+                    using (StreamReader reader = new StreamReader(fileStream))
                     {
-                        tablica1[counter] = int.Parse(line);
+
+                        var counter = 0;
+                        tempArray = new int[File.ReadLines(filePath).Count()];
+                        foreach (string line in File.ReadLines(filePath))
+                        {
+
+                            tempArray[counter] = Int32.Parse(line);
+                            counter++;
+                        }
                     }
-               
-                }*/
-                
+                }
+                labelChoosenFile.Text = "Choosen file : " + filePath;
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
+        
+        /* Przyciski do sortowania przez wsawianie 
+         Funkcje do sortowania znajduja sie w odzielnym w pliku i specjalnej klasie
+         jako argumenty trzeba podac nieposortowana tablice, dlugosc tej tablicy, oryginalna tablice sorted array
+         wartosc sortedArray ulegnie zmianie poprzez referencje
           
-
-            sortowanie_przez_wstawianie(tablica1, tablica1.Length);
-         
+        Funkcje do sortowania zwracaja stringa z czasem poswieconym na sortowanie dzieki temu mozemy przypisac zwrocony czas do labela
+            
+         */
+        private void btnInsertionSort1(object sender, EventArgs e)
+        {
+            if (tempArray != null)
+                //tutaj wywolujemy funkcje/metode do sortowania ktora zwraca nam czas
+                label1.Text = "sorting time "+InsertionSort.sorting1(tempArray, tempArray.Length,ref sortedArray);
+            
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnInsertionSort2(object sender, EventArgs e)
         {
-            Sortowanie(tablica1, tablica1.Length);
+            if (tempArray != null)
+                label1.Text = "sorting time "+InsertionSort.sorting2(tempArray, tempArray.Length, ref sortedArray);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnInsertionSort3(object sender, EventArgs e)
         {
-            Sortowanie3(tablica1, tablica1.Length);
+            if (tempArray != null)
+                label1.Text = "sorting time "+InsertionSort.sorting3(tempArray, tempArray.Length, ref sortedArray);
+        }
+
+        //Pozostale przyciski
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            loading();
+        }
+
+        private void btnSeeSortedData_Click(object sender, EventArgs e)
+        {
+            var dataString = "Sorted data ";
+            if (sortedArray != null)
+            {
+                for(int i=0;i<sortedArray.Length;i++)
+                {
+                    dataString += "\n " + sortedArray[i].ToString();
+                }
+                MessageBox.Show(dataString, "Sorted data", MessageBoxButtons.OK);
+            }
         }
     }
 }
