@@ -173,10 +173,26 @@ namespace zad
              //j = numericUpDown1.Value;
             for (int j = 0; j <= numericUpDown1.Value ; j++)
             {
-                text += rnd.Next();
+                text += rnd.Next()+"\n";
                // Console.WriteLine(rnd.Next());
             }
+            Stream patientStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "|*.txt";
 
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if ((patientStream = saveFileDialog1.OpenFile()) != null)
+                {
+                    using (StreamWriter patientWriter = new StreamWriter(patientStream))
+                    {
+                        patientWriter.WriteLine(text);
+                        patientWriter.Flush();
+                        patientWriter.Close();
+                    }
+                    patientStream.Close();
+                }
+            }
         }
     }
 }
