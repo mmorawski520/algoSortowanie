@@ -115,7 +115,7 @@ namespace zad
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void bubbleSort1_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
                 //sortowanie_babelkowe(tempArray, tempArray.Length);
@@ -123,25 +123,22 @@ namespace zad
         }
       
         
-        private void button5_Click(object sender, EventArgs e)
+        private void bubbleSort2_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
                 label1.Text = BubbleSortFuncs.sortowanie_babelkowe2(tempArray, tempArray.Length, ref sortedArray);
         }
        
 
-        private void button6_Click(object sender, EventArgs e)
+        private void bubbleSort3_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
                 label1.Text = BubbleSortFuncs.sortowanie_babelkowe3(tempArray, tempArray.Length, ref sortedArray);
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void quickSort1_Click(object sender, EventArgs e)
         {
-            /*   long start = Stopwatch.GetTimestamp();
-               quick_sort(tempArray,0,(-1+tempArray.Length));
-               long end = Stopwatch.GetTimestamp();
-               label1.Text = (end-start).ToString();*/
+           
             if (tempArray != null)
             {
 
@@ -152,7 +149,7 @@ namespace zad
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void quickSort2_Click(object sender, EventArgs e)
         {
             long start = Stopwatch.GetTimestamp();
             QuickSortFuncs.quickSort3(0, (-1+tempArray.Length), tempArray);
@@ -160,12 +157,26 @@ namespace zad
             label1.Text = (end - start).ToString();
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void quickSort3_Click(object sender, EventArgs e)
         {
             long start = Stopwatch.GetTimestamp();
             QuickSortFuncs.quickSort2(tempArray,0,(-1+tempArray.Length));
             long end = Stopwatch.GetTimestamp();
             label1.Text = (end - start).ToString();
+        }
+
+        private void generateFileBtn_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            string text ="";
+
+             //j = numericUpDown1.Value;
+            for (int j = 0; j <= numericUpDown1.Value ; j++)
+            {
+                text += rnd.Next();
+               // Console.WriteLine(rnd.Next());
+            }
+
         }
     }
 }
