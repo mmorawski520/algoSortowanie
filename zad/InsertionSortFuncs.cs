@@ -12,7 +12,7 @@ namespace zad
        public static string sorting1(int[] tab, int size,ref int[] sortedArray)
         {
             int temp, j;
-            var stopwatch = new Stopwatch();
+          //  var stopwatch = new Stopwatch();
             long start = Stopwatch.GetTimestamp();
 
 

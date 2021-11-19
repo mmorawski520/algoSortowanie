@@ -24,6 +24,11 @@ namespace zad
         {
             InitializeComponent();
         }
+
+        
+        
+
+      
         //ten void wczytuje dane z pliku wybranego przez uzytkownika
         void loading()
         {
@@ -129,6 +134,38 @@ namespace zad
         {
             if (tempArray != null)
                 label1.Text = BubbleSortFuncs.sortowanie_babelkowe3(tempArray, tempArray.Length, ref sortedArray);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            /*   long start = Stopwatch.GetTimestamp();
+               quick_sort(tempArray,0,(-1+tempArray.Length));
+               long end = Stopwatch.GetTimestamp();
+               label1.Text = (end-start).ToString();*/
+            if (tempArray != null)
+            {
+
+                long start = Stopwatch.GetTimestamp();
+                QuickSortFuncs.quickSort1(tempArray, 0, (-1 + tempArray.Length));
+                long end = Stopwatch.GetTimestamp();
+                label1.Text = (end - start).ToString();
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            long start = Stopwatch.GetTimestamp();
+            QuickSortFuncs.quickSort3(0, (-1+tempArray.Length), tempArray);
+            long end = Stopwatch.GetTimestamp();
+            label1.Text = (end - start).ToString();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            long start = Stopwatch.GetTimestamp();
+            QuickSortFuncs.quickSort2(tempArray,0,(-1+tempArray.Length));
+            long end = Stopwatch.GetTimestamp();
+            label1.Text = (end - start).ToString();
         }
     }
 }
