@@ -10,38 +10,35 @@ namespace zad
 {
     public class QuickSortFuncs
     {
-        public static void quickSort1(int[] tab, int lewy, int prawy)
+        public static void quickSort1(ref int[] tab, int lewy, int prawy)
         {
-            
+
             if (prawy <= lewy) return;
 
             int i = lewy - 1, j = prawy + 1,
-            pivot = tab[(lewy + prawy) / 2];  
+              pivot = tab[(lewy + prawy) / 2];
 
             while (true)
             {
-       
+
                 while (pivot > tab[++i]) ;
 
-               
                 while (pivot < tab[--j]) ;
 
-                
                 if (i <= j)
-                 
+
                     (tab[i], tab[j]) = (tab[j], tab[i]);
                 else
                     break;
             }
 
             if (j > lewy)
-                quickSort1(tab, lewy, j);
+                quickSort1(ref tab, lewy, j);
             if (i < prawy)
-                quickSort1(tab, i, prawy);
-    
-       
+                quickSort1(ref tab, i, prawy);
+
         }
-        public static void quickSort2(int[] tab, int left, int right)
+        public static void quickSort2(ref int[] tab, int left, int right)
         {
             int i = left;
             int j = right;
@@ -63,28 +60,30 @@ namespace zad
                 }
             } while (i <= j);
 
-            if (left < j) quickSort2(tab, left, j);
+            if (left < j) quickSort2(ref tab, left, j);
 
-            if (right > i) quickSort2(tab, i, right);
+            if (right > i) quickSort2(ref tab, i, right);
 
         }
-        public static void quickSort3(int lewy, int prawy, int[] d)
+        public static void quickSort3(int lewy, int prawy, ref int[] d)
         {
             int i, j, piwot;
 
             i = (lewy + prawy) / 2;
-            piwot = d[i]; d[i] = d[prawy];
+            piwot = d[i];
+            d[i] = d[prawy];
             for (j = i = lewy; i < prawy; i++)
                 if (d[i] < piwot)
                 {
                     (d[i], d[j]) = (d[j], d[i]);
                     j++;
                 }
-            d[prawy] = d[j]; d[j] = piwot;
-            if (lewy < j - 1) quickSort3(lewy, j - 1, d);
-            if (j + 1 < prawy) quickSort3(j + 1, prawy, d);
-        }
+            d[prawy] = d[j];
+            d[j] = piwot;
 
+            if (lewy < j - 1) quickSort3(lewy, j - 1, ref d);
+            if (j + 1 < prawy) quickSort3(j + 1, prawy, ref d);
+        }
 
     }
 }
