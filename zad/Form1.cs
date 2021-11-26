@@ -275,6 +275,33 @@ namespace zad
             if (tempArray != null)
                 scoreLabel.Text = "insertionSort time "+InsertionSort.insertionSort3(tempArray, tempArray.Length, ref sortedArray);
         }
+
+        //==============================
+        void heapify3(int[] arr, int n, int i)
+        {
+            int largest = i;
+            int l = 2 * i + 1;
+            int r = 2 * i + 2;
+            if (l < n && arr[l] > arr[largest])
+                largest = l;
+            if (r < n && arr[r] > arr[largest])
+                largest = r;
+            if (largest != i)
+            {
+                (arr[i], arr[largest])=(arr[largest],arr[i]);
+                heapify3(arr, n, largest);
+            }
+        }
+        void heapSort3(int[] arr, int n)
+        {
+            for (int i = n / 2 - 1; i >= 0; i--)
+                heapify(arr, n, i);
+            for (int i = n - 1; i >= 0; i--)
+            {
+                (arr[0], arr[i])=(arr[i],arr[0]);
+                heapify3(arr, i, 0);
+            }
+        }
         ///==============================
         void heapify2(int[] tab, int heap_size, int i)
         {   
@@ -502,6 +529,14 @@ namespace zad
         {
             long start = Stopwatch.GetTimestamp();
             sort(tempArray, tempArray.Length-1);
+            long end = Stopwatch.GetTimestamp();
+            scoreLabel.Text = (end - start).ToString();
+        }
+
+        private void heapsort3_Click(object sender, EventArgs e)
+        {
+            long start = Stopwatch.GetTimestamp();
+            heapSort3(tempArray, tempArray.Length - 1);
             long end = Stopwatch.GetTimestamp();
             scoreLabel.Text = (end - start).ToString();
         }

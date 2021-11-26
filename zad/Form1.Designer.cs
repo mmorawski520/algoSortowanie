@@ -297,6 +297,7 @@ namespace zad
             this.heapsort3.TabIndex = 2;
             this.heapsort3.Text = "button6";
             this.heapsort3.UseVisualStyleBackColor = true;
+            this.heapsort3.Click += new System.EventHandler(this.heapsort3_Click);
             // 
             // heapsort2
             // 
