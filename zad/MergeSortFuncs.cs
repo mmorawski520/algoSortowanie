@@ -1,0 +1,221 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Threading;
+
+namespace zad
+{
+
+    public static class MergeSortFuncs
+    {
+        public static void merge3(int[] tablica, int start, int srodek, int koniec)
+        {
+            int[] tab_pom = new int[(koniec - start) + 1]; // utworzenie tablicy pomocniczej
+            int i = start, j = srodek + 1, k = 0; // zmienne pomocnicze
+
+            while (i <= srodek && j <= koniec)
+            {
+                if (tablica[j] < tablica[i])
+                {
+                    tab_pom[k] = tablica[j];
+                    j++;
+                }
+                else
+                {
+                    tab_pom[k] = tablica[i];
+                    i++;
+                }
+                k++;
+            }
+
+            if (i <= srodek)
+            {
+                while (i <= srodek)
+                {
+
+                    tab_pom[k] = tablica[i];
+                    i++;
+                    k++;
+                }
+            }
+            else
+            {
+                while (j <= koniec)
+                {
+                    tab_pom[k] = tablica[j];
+                    j++;
+                    k++;
+                }
+            }
+
+            for (i = 0; i <= koniec - start; i++)
+                tablica[start + i] = tab_pom[i];
+
+        }
+        public static string mergeSort3(int[] tablica, int start, int koniec)
+        {
+            long startt = Stopwatch.GetTimestamp();
+            sort3(tablica, start, koniec);
+
+            long end = Stopwatch.GetTimestamp();
+            return (end - startt).ToString();
+            //  scoreLabel.Text = (end - start).ToString();
+        }
+
+        public static void sort3(int[] tablica, int start, int koniec)
+        {
+            int srodek;
+
+            if (start != koniec)
+            {
+                srodek = (start + koniec) / 2;
+
+                sort3(tablica, start, srodek);
+                sort3(tablica, srodek + 1, koniec);
+                merge3(tablica, start, srodek, koniec);
+            }
+        }
+
+
+
+        public static void merge2(int[] array, int l, int m, int r)
+        {
+            int i, j, k, nl, nr;
+            //size of left and right sub-arrays
+            nl = m - l + 1; nr = r - m;
+            //intp larr[nl], rarr[nr];
+            int[] larr = new int[nl];
+            int[] rarr = new int[nr];
+            //fill left and right sub-arrays
+            for (i = 0; i < nl; i++)
+                larr[i] = array[l + i];
+            for (j = 0; j < nr; j++)
+                rarr[j] = array[m + 1 + j];
+            i = 0; j = 0; k = l;
+            //marge temp arrays to real array
+            while (i < nl && j < nr)
+            {
+                if (larr[i] <= rarr[j])
+                {
+                    array[k] = larr[i];
+                    i++;
+                }
+                else
+                {
+                    array[k] = rarr[j];
+                    j++;
+                }
+                k++;
+            }
+            while (i < nl)
+            {       //extra element in left array
+                array[k] = larr[i];
+                i++; k++;
+            }
+            while (j < nr)
+            {     //extra element in right array
+                array[k] = rarr[j];
+                j++; k++;
+            }
+        }
+        public static void sort2(int[] array, int l, int r)
+        {
+
+            if (l < r)
+            {
+                var m = l + (r - l) / 2;
+                sort2(array, l, m);
+                sort2(array, m + 1, r);
+
+            }
+        }
+        public static string mergeSort2(int[] array, int l, int r)
+        {
+            long startt = Stopwatch.GetTimestamp();
+            sort2(array, l, r);
+            long end = Stopwatch.GetTimestamp();
+            return (end - startt).ToString();
+
+        }
+        ///==========================
+        public static void merge1(int[] arr, int p, int q, int r)
+        {
+
+            // Create L ← A[p..q] and M ← A[q+1..r]
+            int n1 = q - p + 1;
+            int n2 = r - q;
+            int i, j, k;
+            //int L[n1], M[n2];
+            int[] L = new int[n1];
+            int[] M = new int[n2];
+            for (int z = 0; z < n1; z++)
+                L[z] = arr[p + z];
+            for (int x = 0; x < n2; x++)
+                M[x] = arr[q + 1 + x];
+
+            // Maintain current index of sub-arrays and main array
+
+            i = 0;
+            j = 0;
+            k = p;
+
+            // Until we reach either end of either L or M, pick larger among
+            // elements L and M and place them in the correct position at A[p..r]
+            while (i < n1 && j < n2)
+            {
+                if (L[i] <= M[j])
+                {
+                    arr[k] = L[i];
+                    i++;
+                }
+                else
+                {
+                    arr[k] = M[j];
+                    j++;
+                }
+                k++;
+            }
+
+            // When we run out of elements in either L or M,
+            // pick up the remaining elements and put in A[p..r]
+            while (i < n1)
+            {
+                arr[k] = L[i];
+                i++;
+                k++;
+            }
+
+            while (j < n2)
+            {
+                arr[k] = M[j];
+                j++;
+                k++;
+            }
+        }
+        public static string mergeSort1(int[] arr, int l, int r)
+        {
+            long startt = Stopwatch.GetTimestamp();
+            sort1(arr, l, r);
+            long end = Stopwatch.GetTimestamp();
+            return (end - startt).ToString();
+        }
+        public static void sort1(int[] arr, int l, int r)
+        {
+            if (l < r)
+            {
+                // m is the point where the array is divided into two subarrays
+                int m = l + (r - l) / 2;
+
+                sort1(arr, l, m);
+                sort1(arr, m + 1, r);
+
+                // Merge the sorted subarrays
+                merge1(arr, l, m, r);
+            }
+        }
+    }
+}
+
