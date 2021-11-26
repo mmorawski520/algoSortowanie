@@ -467,10 +467,13 @@ namespace zad
         {
             Random rnd = new Random();
             string text ="";
-
-             //j = numericUpDown1.Value;
-            for (int j = 0; j <= numericUpDown1.Value ; j++)
+            var amountOfNumbers = Int64.Parse(textboxAmountOfNumbers.Text);
+            var minimalna = Int64.Parse(min.Text);
+            var maksymalna = Int64.Parse(max.Text);
+            //j = numericUpDown1.Value;
+            for (int j = 0; j <=  amountOfNumbers; j++)
             {
+                
                 text += rnd.Next()+"\n";
                // Console.WriteLine(rnd.Next());
             }
