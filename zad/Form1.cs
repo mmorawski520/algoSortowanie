@@ -24,6 +24,67 @@ namespace zad
         {
             InitializeComponent();
         }
+        void merge3(int[] tablica, int start, int srodek, int koniec)
+        {
+            int[] tab_pom = new int[(koniec - start)+1]; // utworzenie tablicy pomocniczej
+            int i = start, j = srodek + 1, k = 0; // zmienne pomocnicze
+
+            while (i <= srodek && j <= koniec)
+            {
+                if (tablica[j] < tablica[i])
+                {
+                    tab_pom[k] = tablica[j];
+                    j++;
+                }
+                else
+                {
+                    tab_pom[k] = tablica[i];
+                    i++;
+                }
+                k++;
+            }
+
+            if (i <= srodek)
+            {
+                while (i <= srodek)
+                {
+
+                    tab_pom[k] =tablica[i];
+                    i++;
+                    k++;
+                }
+            }
+            else
+            {
+                while (j <= koniec)
+                {
+                    tab_pom[k] = tablica[j];
+                    j++;
+                    k++;
+                }
+            }
+
+            for (i = 0; i <= koniec - start; i++)
+                tablica[start + i] = tab_pom[i];
+           
+        }
+       
+        
+        void merge_sort3(int[] tablica, int start, int koniec)
+        {
+            int srodek;
+
+            if (start != koniec)
+            {
+                srodek = (start + koniec) / 2;
+           
+                merge_sort3(tablica, start, srodek);
+                merge_sort3(tablica, srodek + 1, koniec);
+                merge3(tablica, start, srodek, koniec);
+            }
+        }
+
+        ///============================================
         void merge2(int[] array, int l, int m, int r)
         {
             int i, j, k, nl, nr;
@@ -342,6 +403,14 @@ namespace zad
         {
             long start = Stopwatch.GetTimestamp();
             mergeSort2(tempArray, 0, tempArray.Length - 1);
+            long end = Stopwatch.GetTimestamp();
+            scoreLabel.Text = (end - start).ToString();
+        }
+
+        private void mergesort3_Click(object sender, EventArgs e)
+        {
+            long start = Stopwatch.GetTimestamp();
+            merge_sort3(tempArray, 0, tempArray.Length - 1);
             long end = Stopwatch.GetTimestamp();
             scoreLabel.Text = (end - start).ToString();
         }

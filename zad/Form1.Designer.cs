@@ -336,6 +336,7 @@ namespace zad
             this.mergesort3.TabIndex = 2;
             this.mergesort3.Text = "button6";
             this.mergesort3.UseVisualStyleBackColor = true;
+            this.mergesort3.Click += new System.EventHandler(this.mergesort3_Click);
             // 
             // mergesort2
             // 
