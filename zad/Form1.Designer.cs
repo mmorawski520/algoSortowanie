@@ -50,6 +50,14 @@ namespace zad
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.generateFileBtn = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.heapsort1 = new System.Windows.Forms.Button();
+            this.heapsort2 = new System.Windows.Forms.Button();
+            this.heapsort3 = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.mergesort1 = new System.Windows.Forms.Button();
+            this.mergesort2 = new System.Windows.Forms.Button();
+            this.mergesort3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -57,6 +65,8 @@ namespace zad
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -267,11 +277,91 @@ namespace zad
             this.generateFileBtn.UseVisualStyleBackColor = true;
             this.generateFileBtn.Click += new System.EventHandler(this.generateFileBtn_Click);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.heapsort3);
+            this.groupBox5.Controls.Add(this.heapsort2);
+            this.groupBox5.Controls.Add(this.heapsort1);
+            this.groupBox5.Location = new System.Drawing.Point(123, 305);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(200, 100);
+            this.groupBox5.TabIndex = 18;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "HeapSort";
+            // 
+            // heapsort1
+            // 
+            this.heapsort1.Location = new System.Drawing.Point(6, 19);
+            this.heapsort1.Name = "heapsort1";
+            this.heapsort1.Size = new System.Drawing.Size(75, 23);
+            this.heapsort1.TabIndex = 0;
+            this.heapsort1.Text = "button4";
+            this.heapsort1.UseVisualStyleBackColor = true;
+            // 
+            // heapsort2
+            // 
+            this.heapsort2.Location = new System.Drawing.Point(88, 20);
+            this.heapsort2.Name = "heapsort2";
+            this.heapsort2.Size = new System.Drawing.Size(75, 23);
+            this.heapsort2.TabIndex = 1;
+            this.heapsort2.Text = "button5";
+            this.heapsort2.UseVisualStyleBackColor = true;
+            // 
+            // heapsort3
+            // 
+            this.heapsort3.Location = new System.Drawing.Point(7, 49);
+            this.heapsort3.Name = "heapsort3";
+            this.heapsort3.Size = new System.Drawing.Size(75, 23);
+            this.heapsort3.TabIndex = 2;
+            this.heapsort3.Text = "button6";
+            this.heapsort3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.mergesort3);
+            this.groupBox6.Controls.Add(this.mergesort2);
+            this.groupBox6.Controls.Add(this.mergesort1);
+            this.groupBox6.Location = new System.Drawing.Point(123, 184);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(200, 100);
+            this.groupBox6.TabIndex = 19;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "MergeSort";
+            // 
+            // mergesort1
+            // 
+            this.mergesort1.Location = new System.Drawing.Point(7, 20);
+            this.mergesort1.Name = "mergesort1";
+            this.mergesort1.Size = new System.Drawing.Size(75, 23);
+            this.mergesort1.TabIndex = 0;
+            this.mergesort1.Text = "button4";
+            this.mergesort1.UseVisualStyleBackColor = true;
+            // 
+            // mergesort2
+            // 
+            this.mergesort2.Location = new System.Drawing.Point(89, 20);
+            this.mergesort2.Name = "mergesort2";
+            this.mergesort2.Size = new System.Drawing.Size(75, 23);
+            this.mergesort2.TabIndex = 1;
+            this.mergesort2.Text = "button5";
+            this.mergesort2.UseVisualStyleBackColor = true;
+            // 
+            // mergesort3
+            // 
+            this.mergesort3.Location = new System.Drawing.Point(7, 50);
+            this.mergesort3.Name = "mergesort3";
+            this.mergesort3.Size = new System.Drawing.Size(75, 23);
+            this.mergesort3.TabIndex = 2;
+            this.mergesort3.Text = "button6";
+            this.mergesort3.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -289,6 +379,8 @@ namespace zad
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,6 +409,14 @@ namespace zad
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button generateFileBtn;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button heapsort3;
+        private System.Windows.Forms.Button heapsort2;
+        private System.Windows.Forms.Button heapsort1;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button mergesort3;
+        private System.Windows.Forms.Button mergesort2;
+        private System.Windows.Forms.Button mergesort1;
     }
 }
 
