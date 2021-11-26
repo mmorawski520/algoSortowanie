@@ -37,26 +37,26 @@ namespace zad
             this.labelChoosenFile = new System.Windows.Forms.Label();
             this.btnSeeSortedData = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bubbleSort1 = new System.Windows.Forms.Button();
-            this.bubbleSort2 = new System.Windows.Forms.Button();
-            this.bubbleSort3 = new System.Windows.Forms.Button();
+            this.rndNum1 = new System.Windows.Forms.Button();
+            this.rndNum2 = new System.Windows.Forms.Button();
+            this.rndNum3 = new System.Windows.Forms.Button();
             this.quickSort1 = new System.Windows.Forms.Button();
             this.quickSort2 = new System.Windows.Forms.Button();
             this.quickSort3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.generateFileBtn = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.generateFileBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -139,35 +139,35 @@ namespace zad
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insertion sort";
             // 
-            // bubbleSort1
+            // rndNum1
             // 
-            this.bubbleSort1.Location = new System.Drawing.Point(87, 19);
-            this.bubbleSort1.Name = "bubbleSort1";
-            this.bubbleSort1.Size = new System.Drawing.Size(75, 23);
-            this.bubbleSort1.TabIndex = 9;
-            this.bubbleSort1.Text = "bubbleSort1";
-            this.bubbleSort1.UseVisualStyleBackColor = true;
-            this.bubbleSort1.Click += new System.EventHandler(this.bubbleSort1_Click);
+            this.rndNum1.Location = new System.Drawing.Point(87, 19);
+            this.rndNum1.Name = "rndNum1";
+            this.rndNum1.Size = new System.Drawing.Size(75, 23);
+            this.rndNum1.TabIndex = 9;
+            this.rndNum1.Text = "rndNum1";
+            this.rndNum1.UseVisualStyleBackColor = true;
+            this.rndNum1.Click += new System.EventHandler(this.rndNum1_Click);
             // 
-            // bubbleSort2
+            // rndNum2
             // 
-            this.bubbleSort2.Location = new System.Drawing.Point(168, 19);
-            this.bubbleSort2.Name = "bubbleSort2";
-            this.bubbleSort2.Size = new System.Drawing.Size(75, 23);
-            this.bubbleSort2.TabIndex = 10;
-            this.bubbleSort2.Text = "bubbleSort2";
-            this.bubbleSort2.UseVisualStyleBackColor = true;
-            this.bubbleSort2.Click += new System.EventHandler(this.bubbleSort2_Click);
+            this.rndNum2.Location = new System.Drawing.Point(168, 19);
+            this.rndNum2.Name = "rndNum2";
+            this.rndNum2.Size = new System.Drawing.Size(75, 23);
+            this.rndNum2.TabIndex = 10;
+            this.rndNum2.Text = "rndNum2";
+            this.rndNum2.UseVisualStyleBackColor = true;
+            this.rndNum2.Click += new System.EventHandler(this.rndNum2_Click);
             // 
-            // bubbleSort3
+            // rndNum3
             // 
-            this.bubbleSort3.Location = new System.Drawing.Point(6, 19);
-            this.bubbleSort3.Name = "bubbleSort3";
-            this.bubbleSort3.Size = new System.Drawing.Size(75, 23);
-            this.bubbleSort3.TabIndex = 11;
-            this.bubbleSort3.Text = "bubbleSort3";
-            this.bubbleSort3.UseVisualStyleBackColor = true;
-            this.bubbleSort3.Click += new System.EventHandler(this.bubbleSort3_Click);
+            this.rndNum3.Location = new System.Drawing.Point(6, 19);
+            this.rndNum3.Name = "rndNum3";
+            this.rndNum3.Size = new System.Drawing.Size(75, 23);
+            this.rndNum3.TabIndex = 11;
+            this.rndNum3.Text = "rndNum3";
+            this.rndNum3.UseVisualStyleBackColor = true;
+            this.rndNum3.Click += new System.EventHandler(this.rndNum3_Click);
             // 
             // quickSort1
             // 
@@ -201,9 +201,9 @@ namespace zad
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.bubbleSort3);
-            this.groupBox2.Controls.Add(this.bubbleSort1);
-            this.groupBox2.Controls.Add(this.bubbleSort2);
+            this.groupBox2.Controls.Add(this.rndNum3);
+            this.groupBox2.Controls.Add(this.rndNum1);
+            this.groupBox2.Controls.Add(this.rndNum2);
             this.groupBox2.Location = new System.Drawing.Point(340, 104);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(299, 57);
@@ -236,6 +236,27 @@ namespace zad
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "groupBox4";
             // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(14, 74);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown3.TabIndex = 3;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(89, 49);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown2.TabIndex = 2;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(7, 50);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(75, 20);
+            this.numericUpDown1.TabIndex = 1;
+            // 
             // generateFileBtn
             // 
             this.generateFileBtn.Location = new System.Drawing.Point(7, 20);
@@ -245,27 +266,6 @@ namespace zad
             this.generateFileBtn.Text = "generate file";
             this.generateFileBtn.UseVisualStyleBackColor = true;
             this.generateFileBtn.Click += new System.EventHandler(this.generateFileBtn_Click);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(7, 50);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(75, 20);
-            this.numericUpDown1.TabIndex = 1;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(89, 49);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown2.TabIndex = 2;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(14, 74);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown3.TabIndex = 3;
             // 
             // Form1
             // 
@@ -286,9 +286,9 @@ namespace zad
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,9 +304,9 @@ namespace zad
         private System.Windows.Forms.Label labelChoosenFile;
         private System.Windows.Forms.Button btnSeeSortedData;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button bubbleSort1;
-        private System.Windows.Forms.Button bubbleSort2;
-        private System.Windows.Forms.Button bubbleSort3;
+        private System.Windows.Forms.Button rndNum1;
+        private System.Windows.Forms.Button rndNum2;
+        private System.Windows.Forms.Button rndNum3;
         private System.Windows.Forms.Button quickSort1;
         private System.Windows.Forms.Button quickSort2;
         private System.Windows.Forms.Button quickSort3;

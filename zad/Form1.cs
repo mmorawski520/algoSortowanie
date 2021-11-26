@@ -68,7 +68,7 @@ namespace zad
             }
         }
         
-        /* Przyciski do sortowania przez wsawianie 
+        /* Przyciski do sortowania przez wstawianie 
          Funkcje do sortowania znajduja sie w odzielnym w pliku i specjalnej klasie
          jako argumenty trzeba podac nieposortowana tablice, dlugosc tej tablicy, oryginalna tablice sorted array
          wartosc sortedArray ulegnie zmianie poprzez referencje
@@ -76,24 +76,24 @@ namespace zad
         Funkcje do sortowania zwracaja stringa z czasem poswieconym na sortowanie dzieki temu mozemy przypisac zwrocony czas do labela
             
          */
+
         private void btnInsertionSort1(object sender, EventArgs e)
         {
             if (tempArray != null)
-                //tutaj wywolujemy funkcje/metode do sortowania ktora zwraca nam czas
-                label1.Text = "sorting time "+InsertionSort.sorting1(tempArray, tempArray.Length,ref sortedArray);
+                label1.Text = "insertionSort time "+InsertionSort.insertionSort1(tempArray, tempArray.Length,ref sortedArray);
             
         }
 
         private void btnInsertionSort2(object sender, EventArgs e)
         {
             if (tempArray != null)
-                label1.Text = "sorting time "+InsertionSort.sorting2(tempArray, tempArray.Length, ref sortedArray);
+                label1.Text = "insertionSort time "+InsertionSort.insertionSort2(tempArray, tempArray.Length, ref sortedArray);
         }
 
         private void btnInsertionSort3(object sender, EventArgs e)
         {
             if (tempArray != null)
-                label1.Text = "sorting time "+InsertionSort.sorting3(tempArray, tempArray.Length, ref sortedArray);
+                label1.Text = "insertionSort time "+InsertionSort.insertionSort3(tempArray, tempArray.Length, ref sortedArray);
         }
 
         //Pozostale przyciski
@@ -115,25 +115,24 @@ namespace zad
             }
         }
 
-        private void bubbleSort1_Click(object sender, EventArgs e)
+        private void rndNum1_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                //sortowanie_babelkowe(tempArray, tempArray.Length);
-                label1.Text = "sorting time "+BubbleSortFuncs.sortowanie_babelkowe(tempArray, tempArray.Length, ref sortedArray);
+                label1.Text = "insertionSort time "+rndNumFuncs.bubbleSort(tempArray, tempArray.Length, ref sortedArray);
         }
       
         
-        private void bubbleSort2_Click(object sender, EventArgs e)
+        private void rndNum2_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                label1.Text = BubbleSortFuncs.sortowanie_babelkowe2(tempArray, tempArray.Length, ref sortedArray);
+                label1.Text = rndNumFuncs.bubbleSort2(tempArray, tempArray.Length, ref sortedArray);
         }
        
 
-        private void bubbleSort3_Click(object sender, EventArgs e)
+        private void rndNum3_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                label1.Text = BubbleSortFuncs.sortowanie_babelkowe3(tempArray, tempArray.Length, ref sortedArray);
+                label1.Text = rndNumFuncs.bubbleSort3(tempArray, tempArray.Length, ref sortedArray);
         }
 
         private void quickSort1_Click(object sender, EventArgs e)
@@ -141,28 +140,45 @@ namespace zad
            
             if (tempArray != null)
             {
-
+                var arrayCopy = tempArray;
                 long start = Stopwatch.GetTimestamp();
-                QuickSortFuncs.quickSort1(tempArray, 0, (-1 + tempArray.Length));
+
+                QuickSortFuncs.quickSort1(ref tempArray, 0, (-1 + tempArray.Length));
+
                 long end = Stopwatch.GetTimestamp();
+
                 label1.Text = (end - start).ToString();
+                sortedArray = tempArray;
+                tempArray = arrayCopy;
             }
         }
 
         private void quickSort2_Click(object sender, EventArgs e)
         {
+            var arrayCopy = tempArray;
             long start = Stopwatch.GetTimestamp();
-            QuickSortFuncs.quickSort3(0, (-1+tempArray.Length), tempArray);
+
+            QuickSortFuncs.quickSort3(0, (-1+tempArray.Length),ref tempArray);
+
             long end = Stopwatch.GetTimestamp();
+
             label1.Text = (end - start).ToString();
+            sortedArray = tempArray;
+            tempArray = arrayCopy;
         }
 
         private void quickSort3_Click(object sender, EventArgs e)
         {
+            var arrayCopy = tempArray;
             long start = Stopwatch.GetTimestamp();
-            QuickSortFuncs.quickSort2(tempArray,0,(-1+tempArray.Length));
+
+            QuickSortFuncs.quickSort2(ref tempArray,0,(-1+tempArray.Length));
+
             long end = Stopwatch.GetTimestamp();
+
             label1.Text = (end - start).ToString();
+            sortedArray = tempArray;
+            tempArray = arrayCopy;
         }
 
         private void generateFileBtn_Click(object sender, EventArgs e)
@@ -176,21 +192,21 @@ namespace zad
                 text += rnd.Next()+"\n";
                // Console.WriteLine(rnd.Next());
             }
-            Stream patientStream;
+            Stream rndNumStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "|*.txt";
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                if ((patientStream = saveFileDialog1.OpenFile()) != null)
+                if ((rndNumStream = saveFileDialog1.OpenFile()) != null)
                 {
-                    using (StreamWriter patientWriter = new StreamWriter(patientStream))
+                    using (StreamWriter rndNumWriter = new StreamWriter(rndNumStream))
                     {
-                        patientWriter.WriteLine(text);
-                        patientWriter.Flush();
-                        patientWriter.Close();
+                        rndNumWriter.WriteLine(text);
+                        rndNumWriter.Flush();
+                        rndNumWriter.Close();
                     }
-                    patientStream.Close();
+                    rndNumStream.Close();
                 }
             }
         }
