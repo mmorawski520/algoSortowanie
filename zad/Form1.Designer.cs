@@ -58,6 +58,9 @@ namespace zad
             this.mergesort1 = new System.Windows.Forms.Button();
             this.min = new System.Windows.Forms.TextBox();
             this.max = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -233,27 +236,30 @@ namespace zad
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.max);
+            this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.textboxAmountOfNumbers);
+            this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.min);
             this.groupBox4.Controls.Add(this.generateFileBtn);
             this.groupBox4.Location = new System.Drawing.Point(421, 152);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(253, 90);
+            this.groupBox4.Size = new System.Drawing.Size(227, 128);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "GenerateFile";
             // 
             // textboxAmountOfNumbers
             // 
-            this.textboxAmountOfNumbers.Location = new System.Drawing.Point(32, 45);
+            this.textboxAmountOfNumbers.Location = new System.Drawing.Point(6, 46);
             this.textboxAmountOfNumbers.Name = "textboxAmountOfNumbers";
             this.textboxAmountOfNumbers.Size = new System.Drawing.Size(100, 20);
             this.textboxAmountOfNumbers.TabIndex = 1;
             // 
             // generateFileBtn
             // 
-            this.generateFileBtn.Location = new System.Drawing.Point(42, 16);
+            this.generateFileBtn.Location = new System.Drawing.Point(18, 17);
             this.generateFileBtn.Name = "generateFileBtn";
             this.generateFileBtn.Size = new System.Drawing.Size(75, 23);
             this.generateFileBtn.TabIndex = 0;
@@ -268,7 +274,7 @@ namespace zad
             this.groupBox5.Controls.Add(this.heapsort1);
             this.groupBox5.Location = new System.Drawing.Point(154, 152);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(261, 90);
+            this.groupBox5.Size = new System.Drawing.Size(261, 73);
             this.groupBox5.TabIndex = 18;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "HeapSort";
@@ -347,23 +353,51 @@ namespace zad
             // 
             // min
             // 
-            this.min.Location = new System.Drawing.Point(147, 19);
+            this.min.Location = new System.Drawing.Point(6, 71);
             this.min.Name = "min";
             this.min.Size = new System.Drawing.Size(100, 20);
             this.min.TabIndex = 20;
+            this.min.TextChanged += new System.EventHandler(this.min_TextChanged);
             // 
             // max
             // 
-            this.max.Location = new System.Drawing.Point(147, 45);
+            this.max.Location = new System.Drawing.Point(6, 94);
             this.max.Name = "max";
             this.max.Size = new System.Drawing.Size(100, 20);
             this.max.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(112, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(112, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "PodajMinLiczbe";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(112, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 13);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "PodajMaxLiczbe";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 444);
+            this.ClientSize = new System.Drawing.Size(709, 353);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -419,6 +453,9 @@ namespace zad
         private System.Windows.Forms.TextBox textboxAmountOfNumbers;
         private System.Windows.Forms.TextBox min;
         private System.Windows.Forms.TextBox max;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

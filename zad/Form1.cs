@@ -468,13 +468,13 @@ namespace zad
             Random rnd = new Random();
             string text ="";
             var amountOfNumbers = Int64.Parse(textboxAmountOfNumbers.Text);
-            var minimalna = Int64.Parse(min.Text);
-            var maksymalna = Int64.Parse(max.Text);
+            int  minimalna = Int32.Parse(min.Text);
+            int maksymalna = Int32.Parse(max.Text);
             //j = numericUpDown1.Value;
             for (int j = 0; j <=  amountOfNumbers; j++)
             {
                 
-                text += rnd.Next()+"\n";
+                text += rnd.Next(minimalna, maksymalna)+"\n";
                // Console.WriteLine(rnd.Next());
             }
             Stream rndNumStream;
@@ -545,6 +545,11 @@ namespace zad
         }
 
         private void scoreLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void min_TextChanged(object sender, EventArgs e)
         {
 
         }
