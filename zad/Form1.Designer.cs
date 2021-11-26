@@ -306,6 +306,7 @@ namespace zad
             this.heapsort2.TabIndex = 1;
             this.heapsort2.Text = "button5";
             this.heapsort2.UseVisualStyleBackColor = true;
+            this.heapsort2.Click += new System.EventHandler(this.heapsort2_Click);
             // 
             // heapsort1
             // 

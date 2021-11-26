@@ -275,6 +275,44 @@ namespace zad
             if (tempArray != null)
                 scoreLabel.Text = "insertionSort time "+InsertionSort.insertionSort3(tempArray, tempArray.Length, ref sortedArray);
         }
+        ///==============================
+        void heapify2(int[] tab, int heap_size, int i)
+        {   
+
+            int largest, temp;
+            int l = 2 * i, r = (2 * i) + 1;
+            if (l <= heap_size && tab[l] > tab[i])
+                largest = l;
+            else largest = i;
+            if (r <= heap_size && tab[r] > tab[largest])
+                largest = r;
+            if (largest != i)
+            {
+                temp = tab[largest];
+                tab[largest] = tab[i];
+                tab[i] = temp;
+                heapify2(tab, heap_size, largest);
+            }
+        }
+        void budKopiec(int[] tab, int rozmiar)
+        {
+            for (int i = rozmiar / 2; i > 0; i--)
+                heapify2(tab, rozmiar, i);
+        }
+
+        void sort(int[] tab, int rozmiar)
+        {
+            int temp;
+            budKopiec(tab, rozmiar);
+            for (int i = rozmiar; i > 1; i--)
+            {
+                temp = tab[i];
+                tab[i] = tab[1];
+                tab[1] = temp;
+                rozmiar--;
+                heapify2(tab, rozmiar, 1);
+            }
+        }
         ///==========================
         void heapify(int[] arr, int n, int i)
         {
@@ -456,6 +494,14 @@ namespace zad
         {
             long start = Stopwatch.GetTimestamp();
             heapSort(tempArray,tempArray.Length);
+            long end = Stopwatch.GetTimestamp();
+            scoreLabel.Text = (end - start).ToString();
+        }
+
+        private void heapsort2_Click(object sender, EventArgs e)
+        {
+            long start = Stopwatch.GetTimestamp();
+            sort(tempArray, tempArray.Length-1);
             long end = Stopwatch.GetTimestamp();
             scoreLabel.Text = (end - start).ToString();
         }
