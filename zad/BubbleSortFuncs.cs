@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Threading;
 namespace zad
 {
-    class rndNumFuncs
+    class bubbleSortFuncs
     {
         public static string bubbleSort(int[] tab, int size, ref int[] sortedArray)
         {
