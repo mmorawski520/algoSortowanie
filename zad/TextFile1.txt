@@ -1,3 +1,4 @@
 ﻿Przydatne linki
 https://www.programiz.com/dsa/merge-sort
+https://www.educba.com/heap-sort-in-c-plus-plus/
 Dziennik zdarzeń
