@@ -24,7 +24,59 @@ namespace zad
         {
             InitializeComponent();
         }
-
+        void merge2(int[] array, int l, int m, int r)
+        {
+            int i, j, k, nl, nr;
+            //size of left and right sub-arrays
+            nl = m - l + 1; nr = r - m;
+            //intp larr[nl], rarr[nr];
+            int[] larr = new int[nl];
+            int[] rarr = new int[nr];
+            //fill left and right sub-arrays
+            for (i = 0; i < nl; i++)
+                larr[i] = array[l + i];
+            for (j = 0; j < nr; j++)
+                rarr[j] = array[m + 1 + j];
+            i = 0; j = 0; k = l;
+            //marge temp arrays to real array
+            while (i < nl && j < nr)
+            {
+                if (larr[i] <= rarr[j])
+                {
+                    array[k] = larr[i];
+                    i++;
+                }
+                else
+                {
+                    array[k] = rarr[j];
+                    j++;
+                }
+                k++;
+            }
+            while (i < nl)
+            {       //extra element in left array
+                array[k] = larr[i];
+                i++; k++;
+            }
+            while (j < nr)
+            {     //extra element in right array
+                array[k] = rarr[j];
+                j++; k++;
+            }
+        }
+        void mergeSort2(int[] array, int l, int r)
+        {
+             
+            if (l < r)
+            {
+                var m = l + (r - l) / 2;
+                // Sort first and second arrays
+                mergeSort2(array, l, m);
+                mergeSort2(array, m + 1, r);
+                merge2(array, l, m, r);
+            }
+        }
+        ///==========================
         void merge(int[] arr, int p, int q, int r)
         {
 
@@ -282,6 +334,14 @@ namespace zad
         {
             long start = Stopwatch.GetTimestamp();
             mergeSort(tempArray, 0, tempArray.Length - 1);
+            long end = Stopwatch.GetTimestamp();
+            scoreLabel.Text = (end - start).ToString();
+        }
+
+        private void mergesort2_Click(object sender, EventArgs e)
+        {
+            long start = Stopwatch.GetTimestamp();
+            mergeSort2(tempArray, 0, tempArray.Length - 1);
             long end = Stopwatch.GetTimestamp();
             scoreLabel.Text = (end - start).ToString();
         }

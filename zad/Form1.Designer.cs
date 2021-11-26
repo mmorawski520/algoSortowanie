@@ -51,13 +51,13 @@ namespace zad
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.generateFileBtn = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.heapsort1 = new System.Windows.Forms.Button();
-            this.heapsort2 = new System.Windows.Forms.Button();
             this.heapsort3 = new System.Windows.Forms.Button();
+            this.heapsort2 = new System.Windows.Forms.Button();
+            this.heapsort1 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.mergesort1 = new System.Windows.Forms.Button();
-            this.mergesort2 = new System.Windows.Forms.Button();
             this.mergesort3 = new System.Windows.Forms.Button();
+            this.mergesort2 = new System.Windows.Forms.Button();
+            this.mergesort1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -84,7 +84,7 @@ namespace zad
             this.scoreLabel.AutoSize = true;
             this.scoreLabel.Location = new System.Drawing.Point(353, 177);
             this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Size = new System.Drawing.Size(35, 13);
+            this.scoreLabel.Size = new System.Drawing.Size(59, 13);
             this.scoreLabel.TabIndex = 1;
             this.scoreLabel.Text = "scoreLabel";
             // 
@@ -289,14 +289,14 @@ namespace zad
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "HeapSort";
             // 
-            // heapsort1
+            // heapsort3
             // 
-            this.heapsort1.Location = new System.Drawing.Point(6, 19);
-            this.heapsort1.Name = "heapsort1";
-            this.heapsort1.Size = new System.Drawing.Size(75, 23);
-            this.heapsort1.TabIndex = 0;
-            this.heapsort1.Text = "button4";
-            this.heapsort1.UseVisualStyleBackColor = true;
+            this.heapsort3.Location = new System.Drawing.Point(7, 49);
+            this.heapsort3.Name = "heapsort3";
+            this.heapsort3.Size = new System.Drawing.Size(75, 23);
+            this.heapsort3.TabIndex = 2;
+            this.heapsort3.Text = "button6";
+            this.heapsort3.UseVisualStyleBackColor = true;
             // 
             // heapsort2
             // 
@@ -307,14 +307,14 @@ namespace zad
             this.heapsort2.Text = "button5";
             this.heapsort2.UseVisualStyleBackColor = true;
             // 
-            // heapsort3
+            // heapsort1
             // 
-            this.heapsort3.Location = new System.Drawing.Point(7, 49);
-            this.heapsort3.Name = "heapsort3";
-            this.heapsort3.Size = new System.Drawing.Size(75, 23);
-            this.heapsort3.TabIndex = 2;
-            this.heapsort3.Text = "button6";
-            this.heapsort3.UseVisualStyleBackColor = true;
+            this.heapsort1.Location = new System.Drawing.Point(6, 19);
+            this.heapsort1.Name = "heapsort1";
+            this.heapsort1.Size = new System.Drawing.Size(75, 23);
+            this.heapsort1.TabIndex = 0;
+            this.heapsort1.Text = "button4";
+            this.heapsort1.UseVisualStyleBackColor = true;
             // 
             // groupBox6
             // 
@@ -328,15 +328,14 @@ namespace zad
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "MergeSort";
             // 
-            // mergesort1
+            // mergesort3
             // 
-            this.mergesort1.Location = new System.Drawing.Point(7, 20);
-            this.mergesort1.Name = "mergesort1";
-            this.mergesort1.Size = new System.Drawing.Size(75, 23);
-            this.mergesort1.TabIndex = 0;
-            this.mergesort1.Text = "button4";
-            this.mergesort1.UseVisualStyleBackColor = true;
-            this.mergesort1.Click += new System.EventHandler(this.mergesort1_Click);
+            this.mergesort3.Location = new System.Drawing.Point(7, 50);
+            this.mergesort3.Name = "mergesort3";
+            this.mergesort3.Size = new System.Drawing.Size(75, 23);
+            this.mergesort3.TabIndex = 2;
+            this.mergesort3.Text = "button6";
+            this.mergesort3.UseVisualStyleBackColor = true;
             // 
             // mergesort2
             // 
@@ -346,15 +345,17 @@ namespace zad
             this.mergesort2.TabIndex = 1;
             this.mergesort2.Text = "button5";
             this.mergesort2.UseVisualStyleBackColor = true;
+            this.mergesort2.Click += new System.EventHandler(this.mergesort2_Click);
             // 
-            // mergesort3
+            // mergesort1
             // 
-            this.mergesort3.Location = new System.Drawing.Point(7, 50);
-            this.mergesort3.Name = "mergesort3";
-            this.mergesort3.Size = new System.Drawing.Size(75, 23);
-            this.mergesort3.TabIndex = 2;
-            this.mergesort3.Text = "button6";
-            this.mergesort3.UseVisualStyleBackColor = true;
+            this.mergesort1.Location = new System.Drawing.Point(7, 20);
+            this.mergesort1.Name = "mergesort1";
+            this.mergesort1.Size = new System.Drawing.Size(75, 23);
+            this.mergesort1.TabIndex = 0;
+            this.mergesort1.Text = "button4";
+            this.mergesort1.UseVisualStyleBackColor = true;
+            this.mergesort1.Click += new System.EventHandler(this.mergesort1_Click);
             // 
             // Form1
             // 
