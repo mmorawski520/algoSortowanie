@@ -543,5 +543,10 @@ namespace zad
             long end = Stopwatch.GetTimestamp();
             scoreLabel.Text = (end - start).ToString();
         }
+
+        private void scoreLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -46,6 +46,7 @@ namespace zad
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textboxAmountOfNumbers = new System.Windows.Forms.TextBox();
             this.generateFileBtn = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.heapsort3 = new System.Windows.Forms.Button();
@@ -55,7 +56,6 @@ namespace zad
             this.mergesort3 = new System.Windows.Forms.Button();
             this.mergesort2 = new System.Windows.Forms.Button();
             this.mergesort1 = new System.Windows.Forms.Button();
-            this.textboxAmountOfNumbers = new System.Windows.Forms.TextBox();
             this.min = new System.Windows.Forms.TextBox();
             this.max = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -68,7 +68,7 @@ namespace zad
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(17, 19);
+            this.button1.Location = new System.Drawing.Point(7, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -79,15 +79,16 @@ namespace zad
             // scoreLabel
             // 
             this.scoreLabel.AutoSize = true;
-            this.scoreLabel.Location = new System.Drawing.Point(353, 177);
+            this.scoreLabel.Location = new System.Drawing.Point(60, 168);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Size = new System.Drawing.Size(59, 13);
             this.scoreLabel.TabIndex = 1;
             this.scoreLabel.Text = "scoreLabel";
+            this.scoreLabel.Click += new System.EventHandler(this.scoreLabel_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(118, 19);
+            this.button2.Location = new System.Drawing.Point(88, 19);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -97,7 +98,7 @@ namespace zad
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(199, 19);
+            this.button3.Location = new System.Drawing.Point(169, 19);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 4;
@@ -139,12 +140,12 @@ namespace zad
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(329, 25);
+            this.groupBox1.Location = new System.Drawing.Point(154, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(310, 53);
+            this.groupBox1.Size = new System.Drawing.Size(261, 57);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Insertion sort";
+            this.groupBox1.Text = "InsertionSort";
             // 
             // rndNum1
             // 
@@ -211,39 +212,48 @@ namespace zad
             this.groupBox2.Controls.Add(this.rndNum3);
             this.groupBox2.Controls.Add(this.rndNum1);
             this.groupBox2.Controls.Add(this.rndNum2);
-            this.groupBox2.Location = new System.Drawing.Point(340, 104);
+            this.groupBox2.Location = new System.Drawing.Point(421, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(299, 57);
+            this.groupBox2.Size = new System.Drawing.Size(253, 57);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Bubble sort";
+            this.groupBox2.Text = "BubbleSort";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.quickSort1);
             this.groupBox3.Controls.Add(this.quickSort2);
             this.groupBox3.Controls.Add(this.quickSort3);
-            this.groupBox3.Location = new System.Drawing.Point(346, 210);
+            this.groupBox3.Location = new System.Drawing.Point(421, 83);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(268, 74);
+            this.groupBox3.Size = new System.Drawing.Size(253, 51);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Quick sort";
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.max);
             this.groupBox4.Controls.Add(this.textboxAmountOfNumbers);
+            this.groupBox4.Controls.Add(this.min);
             this.groupBox4.Controls.Add(this.generateFileBtn);
-            this.groupBox4.Location = new System.Drawing.Point(368, 305);
+            this.groupBox4.Location = new System.Drawing.Point(421, 152);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 100);
+            this.groupBox4.Size = new System.Drawing.Size(253, 90);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
+            this.groupBox4.Text = "GenerateFile";
+            // 
+            // textboxAmountOfNumbers
+            // 
+            this.textboxAmountOfNumbers.Location = new System.Drawing.Point(32, 45);
+            this.textboxAmountOfNumbers.Name = "textboxAmountOfNumbers";
+            this.textboxAmountOfNumbers.Size = new System.Drawing.Size(100, 20);
+            this.textboxAmountOfNumbers.TabIndex = 1;
             // 
             // generateFileBtn
             // 
-            this.generateFileBtn.Location = new System.Drawing.Point(7, 20);
+            this.generateFileBtn.Location = new System.Drawing.Point(42, 16);
             this.generateFileBtn.Name = "generateFileBtn";
             this.generateFileBtn.Size = new System.Drawing.Size(75, 23);
             this.generateFileBtn.TabIndex = 0;
@@ -256,16 +266,16 @@ namespace zad
             this.groupBox5.Controls.Add(this.heapsort3);
             this.groupBox5.Controls.Add(this.heapsort2);
             this.groupBox5.Controls.Add(this.heapsort1);
-            this.groupBox5.Location = new System.Drawing.Point(123, 305);
+            this.groupBox5.Location = new System.Drawing.Point(154, 152);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 100);
+            this.groupBox5.Size = new System.Drawing.Size(261, 90);
             this.groupBox5.TabIndex = 18;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "HeapSort";
             // 
             // heapsort3
             // 
-            this.heapsort3.Location = new System.Drawing.Point(7, 49);
+            this.heapsort3.Location = new System.Drawing.Point(169, 19);
             this.heapsort3.Name = "heapsort3";
             this.heapsort3.Size = new System.Drawing.Size(75, 23);
             this.heapsort3.TabIndex = 2;
@@ -275,7 +285,7 @@ namespace zad
             // 
             // heapsort2
             // 
-            this.heapsort2.Location = new System.Drawing.Point(88, 20);
+            this.heapsort2.Location = new System.Drawing.Point(88, 19);
             this.heapsort2.Name = "heapsort2";
             this.heapsort2.Size = new System.Drawing.Size(75, 23);
             this.heapsort2.TabIndex = 1;
@@ -285,7 +295,7 @@ namespace zad
             // 
             // heapsort1
             // 
-            this.heapsort1.Location = new System.Drawing.Point(6, 19);
+            this.heapsort1.Location = new System.Drawing.Point(7, 19);
             this.heapsort1.Name = "heapsort1";
             this.heapsort1.Size = new System.Drawing.Size(75, 23);
             this.heapsort1.TabIndex = 0;
@@ -298,16 +308,16 @@ namespace zad
             this.groupBox6.Controls.Add(this.mergesort3);
             this.groupBox6.Controls.Add(this.mergesort2);
             this.groupBox6.Controls.Add(this.mergesort1);
-            this.groupBox6.Location = new System.Drawing.Point(123, 184);
+            this.groupBox6.Location = new System.Drawing.Point(154, 83);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(200, 100);
+            this.groupBox6.Size = new System.Drawing.Size(261, 51);
             this.groupBox6.TabIndex = 19;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "MergeSort";
             // 
             // mergesort3
             // 
-            this.mergesort3.Location = new System.Drawing.Point(7, 50);
+            this.mergesort3.Location = new System.Drawing.Point(170, 20);
             this.mergesort3.Name = "mergesort3";
             this.mergesort3.Size = new System.Drawing.Size(75, 23);
             this.mergesort3.TabIndex = 2;
@@ -335,23 +345,16 @@ namespace zad
             this.mergesort1.UseVisualStyleBackColor = true;
             this.mergesort1.Click += new System.EventHandler(this.mergesort1_Click);
             // 
-            // textboxAmountOfNumbers
-            // 
-            this.textboxAmountOfNumbers.Location = new System.Drawing.Point(7, 52);
-            this.textboxAmountOfNumbers.Name = "textboxAmountOfNumbers";
-            this.textboxAmountOfNumbers.Size = new System.Drawing.Size(100, 20);
-            this.textboxAmountOfNumbers.TabIndex = 1;
-            // 
             // min
             // 
-            this.min.Location = new System.Drawing.Point(502, 327);
+            this.min.Location = new System.Drawing.Point(147, 19);
             this.min.Name = "min";
             this.min.Size = new System.Drawing.Size(100, 20);
             this.min.TabIndex = 20;
             // 
             // max
             // 
-            this.max.Location = new System.Drawing.Point(502, 356);
+            this.max.Location = new System.Drawing.Point(147, 45);
             this.max.Name = "max";
             this.max.Size = new System.Drawing.Size(100, 20);
             this.max.TabIndex = 21;
@@ -360,9 +363,7 @@ namespace zad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.max);
-            this.Controls.Add(this.min);
+            this.ClientSize = new System.Drawing.Size(727, 444);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
