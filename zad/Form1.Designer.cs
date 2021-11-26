@@ -315,6 +315,7 @@ namespace zad
             this.heapsort1.TabIndex = 0;
             this.heapsort1.Text = "button4";
             this.heapsort1.UseVisualStyleBackColor = true;
+            this.heapsort1.Click += new System.EventHandler(this.heapsort1_Click);
             // 
             // groupBox6
             // 
