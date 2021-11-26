@@ -30,7 +30,7 @@ namespace zad
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.scoreLabel = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnOpenFile = new System.Windows.Forms.Button();
@@ -79,14 +79,14 @@ namespace zad
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnInsertionSort1);
             // 
-            // label1
+            // scoreLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(353, 177);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.Location = new System.Drawing.Point(353, 177);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(35, 13);
+            this.scoreLabel.TabIndex = 1;
+            this.scoreLabel.Text = "scoreLabel";
             // 
             // button2
             // 
@@ -336,6 +336,7 @@ namespace zad
             this.mergesort1.TabIndex = 0;
             this.mergesort1.Text = "button4";
             this.mergesort1.UseVisualStyleBackColor = true;
+            this.mergesort1.Click += new System.EventHandler(this.mergesort1_Click);
             // 
             // mergesort2
             // 
@@ -368,7 +369,7 @@ namespace zad
             this.Controls.Add(this.btnSeeSortedData);
             this.Controls.Add(this.labelChoosenFile);
             this.Controls.Add(this.btnOpenFile);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -389,7 +390,7 @@ namespace zad
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnOpenFile;

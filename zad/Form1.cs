@@ -25,10 +25,77 @@ namespace zad
             InitializeComponent();
         }
 
-        
-        
+        void merge(int[] arr, int p, int q, int r)
+        {
 
-      
+            // Create L ← A[p..q] and M ← A[q+1..r]
+            int n1 = q - p + 1;
+            int n2 = r - q;
+            int i, j, k;
+            //int L[n1], M[n2];
+            int[] L = new int[n1];
+            int[] M = new int[n2];
+            for (int z = 0; z < n1; z++)
+                L[z] = arr[p + z];
+            for (int x = 0; x < n2; x++)
+                M[x] = arr[q + 1 + x];
+
+            // Maintain current index of sub-arrays and main array
+            
+            i = 0;
+            j = 0;
+            k = p;
+
+            // Until we reach either end of either L or M, pick larger among
+            // elements L and M and place them in the correct position at A[p..r]
+            while (i < n1 && j < n2)
+            {
+                if (L[i] <= M[j])
+                {
+                    arr[k] = L[i];
+                    i++;
+                }
+                else
+                {
+                    arr[k] = M[j];
+                    j++;
+                }
+                k++;
+            }
+
+            // When we run out of elements in either L or M,
+            // pick up the remaining elements and put in A[p..r]
+            while (i < n1)
+            {
+                arr[k] = L[i];
+                i++;
+                k++;
+            }
+
+            while (j < n2)
+            {
+                arr[k] = M[j];
+                j++;
+                k++;
+            }
+        }
+        void mergeSort(int[] arr, int l, int r)
+        {
+            if (l < r)
+            {
+                // m is the point where the array is divided into two subarrays
+                int m = l + (r - l) / 2;
+
+                mergeSort(arr, l, m);
+                mergeSort(arr, m + 1, r);
+
+                // Merge the sorted subarrays
+                merge(arr, l, m, r);
+            }
+        }
+
+
+
         //ten void wczytuje dane z pliku wybranego przez uzytkownika
         void loading()
         {
@@ -80,20 +147,20 @@ namespace zad
         private void btnInsertionSort1(object sender, EventArgs e)
         {
             if (tempArray != null)
-                label1.Text = "insertionSort time "+InsertionSort.insertionSort1(tempArray, tempArray.Length,ref sortedArray);
+                scoreLabel.Text = "insertionSort time "+InsertionSort.insertionSort1(tempArray, tempArray.Length,ref sortedArray);
             
         }
 
         private void btnInsertionSort2(object sender, EventArgs e)
         {
             if (tempArray != null)
-                label1.Text = "insertionSort time "+InsertionSort.insertionSort2(tempArray, tempArray.Length, ref sortedArray);
+                scoreLabel.Text = "insertionSort time "+InsertionSort.insertionSort2(tempArray, tempArray.Length, ref sortedArray);
         }
 
         private void btnInsertionSort3(object sender, EventArgs e)
         {
             if (tempArray != null)
-                label1.Text = "insertionSort time "+InsertionSort.insertionSort3(tempArray, tempArray.Length, ref sortedArray);
+                scoreLabel.Text = "insertionSort time "+InsertionSort.insertionSort3(tempArray, tempArray.Length, ref sortedArray);
         }
 
         //Pozostale przyciski
@@ -118,21 +185,21 @@ namespace zad
         private void rndNum1_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                label1.Text = "insertionSort time "+rndNumFuncs.bubbleSort(tempArray, tempArray.Length, ref sortedArray);
+                scoreLabel.Text = "insertionSort time "+rndNumFuncs.bubbleSort(tempArray, tempArray.Length, ref sortedArray);
         }
       
         
         private void rndNum2_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                label1.Text = rndNumFuncs.bubbleSort2(tempArray, tempArray.Length, ref sortedArray);
+                scoreLabel.Text = rndNumFuncs.bubbleSort2(tempArray, tempArray.Length, ref sortedArray);
         }
        
 
         private void rndNum3_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                label1.Text = rndNumFuncs.bubbleSort3(tempArray, tempArray.Length, ref sortedArray);
+                scoreLabel.Text = rndNumFuncs.bubbleSort3(tempArray, tempArray.Length, ref sortedArray);
         }
 
         private void quickSort1_Click(object sender, EventArgs e)
@@ -147,7 +214,7 @@ namespace zad
 
                 long end = Stopwatch.GetTimestamp();
 
-                label1.Text = (end - start).ToString();
+                scoreLabel.Text = (end - start).ToString();
                 sortedArray = tempArray;
                 tempArray = arrayCopy;
             }
@@ -162,7 +229,7 @@ namespace zad
 
             long end = Stopwatch.GetTimestamp();
 
-            label1.Text = (end - start).ToString();
+            scoreLabel.Text = (end - start).ToString();
             sortedArray = tempArray;
             tempArray = arrayCopy;
         }
@@ -176,7 +243,7 @@ namespace zad
 
             long end = Stopwatch.GetTimestamp();
 
-            label1.Text = (end - start).ToString();
+            scoreLabel.Text = (end - start).ToString();
             sortedArray = tempArray;
             tempArray = arrayCopy;
         }
@@ -209,6 +276,14 @@ namespace zad
                     rndNumStream.Close();
                 }
             }
+        }
+
+        private void mergesort1_Click(object sender, EventArgs e)
+        {
+            long start = Stopwatch.GetTimestamp();
+            mergeSort(tempArray, 0, tempArray.Length - 1);
+            long end = Stopwatch.GetTimestamp();
+            scoreLabel.Text = (end - start).ToString();
         }
     }
 }

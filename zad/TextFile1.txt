@@ -1,1 +1,3 @@
-﻿Dziennik zdarzeń
+﻿Przydatne linki
+https://www.programiz.com/dsa/merge-sort
+Dziennik zdarzeń
