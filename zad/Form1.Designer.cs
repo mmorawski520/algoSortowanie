@@ -46,7 +46,12 @@ namespace zad
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.max = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.textboxAmountOfNumbers = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.min = new System.Windows.Forms.TextBox();
             this.generateFileBtn = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.heapsort3 = new System.Windows.Forms.Button();
@@ -56,11 +61,7 @@ namespace zad
             this.mergesort3 = new System.Windows.Forms.Button();
             this.mergesort2 = new System.Windows.Forms.Button();
             this.mergesort1 = new System.Windows.Forms.Button();
-            this.min = new System.Windows.Forms.TextBox();
-            this.max = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.sortedDataTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -82,12 +83,12 @@ namespace zad
             // scoreLabel
             // 
             this.scoreLabel.AutoSize = true;
-            this.scoreLabel.Location = new System.Drawing.Point(60, 168);
+            this.scoreLabel.Location = new System.Drawing.Point(158, 267);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Size = new System.Drawing.Size(59, 13);
             this.scoreLabel.TabIndex = 1;
             this.scoreLabel.Text = "scoreLabel";
-            this.scoreLabel.Click += new System.EventHandler(this.scoreLabel_Click);
+        
             // 
             // button2
             // 
@@ -250,12 +251,54 @@ namespace zad
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "GenerateFile";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(112, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 13);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "PodajMaxLiczbe";
+            // 
+            // max
+            // 
+            this.max.Location = new System.Drawing.Point(6, 94);
+            this.max.Name = "max";
+            this.max.Size = new System.Drawing.Size(100, 20);
+            this.max.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(112, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 13);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "PodajMinLiczbe";
+            // 
             // textboxAmountOfNumbers
             // 
             this.textboxAmountOfNumbers.Location = new System.Drawing.Point(6, 46);
             this.textboxAmountOfNumbers.Name = "textboxAmountOfNumbers";
             this.textboxAmountOfNumbers.Size = new System.Drawing.Size(100, 20);
             this.textboxAmountOfNumbers.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(112, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "label1";
+            // 
+            // min
+            // 
+            this.min.Location = new System.Drawing.Point(6, 71);
+            this.min.Name = "min";
+            this.min.Size = new System.Drawing.Size(100, 20);
+            this.min.TabIndex = 20;
+            
             // 
             // generateFileBtn
             // 
@@ -351,53 +394,20 @@ namespace zad
             this.mergesort1.UseVisualStyleBackColor = true;
             this.mergesort1.Click += new System.EventHandler(this.mergesort1_Click);
             // 
-            // min
+            // sortedDataTextBox
             // 
-            this.min.Location = new System.Drawing.Point(6, 71);
-            this.min.Name = "min";
-            this.min.Size = new System.Drawing.Size(100, 20);
-            this.min.TabIndex = 20;
-            this.min.TextChanged += new System.EventHandler(this.min_TextChanged);
-            // 
-            // max
-            // 
-            this.max.Location = new System.Drawing.Point(6, 94);
-            this.max.Name = "max";
-            this.max.Size = new System.Drawing.Size(100, 20);
-            this.max.TabIndex = 21;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(112, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "PodajMinLiczbe";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(112, 97);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 13);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "PodajMaxLiczbe";
+            this.sortedDataTextBox.Location = new System.Drawing.Point(24, 169);
+            this.sortedDataTextBox.Name = "sortedDataTextBox";
+            this.sortedDataTextBox.Size = new System.Drawing.Size(100, 96);
+            this.sortedDataTextBox.TabIndex = 20;
+            this.sortedDataTextBox.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 353);
+            this.Controls.Add(this.sortedDataTextBox);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -456,6 +466,7 @@ namespace zad
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox sortedDataTextBox;
     }
 }
 

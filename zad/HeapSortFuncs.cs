@@ -9,7 +9,6 @@ namespace zad
 {
     public static class HeapSortFuncs
     {
-        //==============================
 
         public static void heapify3(int[] arr, int n, int i)
         {
@@ -36,7 +35,7 @@ namespace zad
                 heapify3(arr, i, 0);
             }
         }
-        ///==============================
+
         public static void heapify2(int[] tab, int heap_size, int i)
         {
 
@@ -77,23 +76,21 @@ namespace zad
         }
         public static void sort2(int[] arr, int n)
         {
-            // Build max heap
+
             for (int i = n / 2 - 1; i >= 0; i--)
                 heapify(arr, n, i);
 
-            // Heap sort
             for (int i = n - 1; i >= 0; i--)
             {
                 (arr[0], arr[i]) = (arr[i], arr[0]);
 
-                // Heapify root element to get highest element at root again
                 heapify(arr, i, 0);
             }
         }
-        ///==========================
+
         public static void heapify(int[] arr, int n, int i)
         {
-            // Find largest among root, left child and right child
+
             int largest = i;
             int left = 2 * i + 1;
             int right = 2 * i + 2;
@@ -104,7 +101,6 @@ namespace zad
             if (right < n && arr[right] > arr[largest])
                 largest = right;
 
-            // Swap and continue heapifying if root is not largest
             if (largest != i)
             {
                 (arr[i], arr[largest]) = (arr[largest], arr[i]);
@@ -112,56 +108,48 @@ namespace zad
             }
         }
 
-        // main function to do heap sort
         public static void sort(int[] arr, int n)
         {
-            // Build max heap
+
             for (int i = n / 2 - 1; i >= 0; i--)
                 heapify(arr, n, i);
 
-            // Heap sort
             for (int i = n - 1; i >= 0; i--)
             {
                 (arr[0], arr[i]) = (arr[i], arr[0]);
 
-                // Heapify root element to get highest element at root again
                 heapify(arr, i, 0);
             }
         }
-        /*
-         * for (int i = n / 2 - 1; i >= 0; i--)
-                heapify(arr, n, i);
 
-            // Heap sort
-            for (int i = n - 1; i >= 0; i--)
-            {
-                (arr[0], arr[i])=(arr[i],arr[0]);
-
-                // Heapify root element to get highest element at root again
-                heapify(arr, i, 0);
-            }*/
-        public static string heapSort3(int[] arr, int n)
+        public static string heapSort3(int[] arr, int n, ref int[] sortedArray)
         {
-            long start = Stopwatch.GetTimestamp();
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
             sort3(arr, arr.Length - 1);
-            long end = Stopwatch.GetTimestamp();
-            return (end - start).ToString();
+            stopwatch.Stop();
+            sortedArray = arr;
+            return stopwatch.ElapsedMilliseconds.ToString();
         }
-        public static string heapSort2(int[] arr, int n)
+        public static string heapSort2(int[] arr, int n, ref int[] sortedArray)
         {
-            long start = Stopwatch.GetTimestamp();
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
             sort2(arr, arr.Length - 1);
-            long end = Stopwatch.GetTimestamp();
-            return (end - start).ToString();
+            stopwatch.Stop();
+            sortedArray = arr;
+            return stopwatch.ElapsedMilliseconds.ToString();
         }
-        public static string heapSort1(int[] arr, int n)
+        public static string heapSort1(int[] arr, int n, ref int[] sortedArray)
         {
-            long start = Stopwatch.GetTimestamp();
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
             sort1(arr, arr.Length - 1);
-            long end = Stopwatch.GetTimestamp();
-            return (end - start).ToString();
+            stopwatch.Stop();
+            sortedArray = arr;
+
+            return stopwatch.ElapsedMilliseconds.ToString();
         }
 
     }
 }
-

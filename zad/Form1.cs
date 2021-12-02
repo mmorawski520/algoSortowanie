@@ -100,13 +100,15 @@ namespace zad
             if (tempArray != null)
             {
                 var arrayCopy = tempArray;
-                long start = Stopwatch.GetTimestamp();
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                stopwatch.Stop();
 
-                QuickSortFuncs.quickSort1(ref tempArray, 0, (-1 + tempArray.Length));
+                QuickSortFuncs.quickSort1(ref tempArray, 0, (tempArray.Length));
 
-                long end = Stopwatch.GetTimestamp();
 
-                scoreLabel.Text = (end - start).ToString();
+
+                scoreLabel.Text = stopwatch.ElapsedMilliseconds.ToString();
                 sortedArray = tempArray;
                 tempArray = arrayCopy;
             }
@@ -115,13 +117,15 @@ namespace zad
         private void quickSort2_Click(object sender, EventArgs e)
         {
             var arrayCopy = tempArray;
-            long start = Stopwatch.GetTimestamp();
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+           
 
-            QuickSortFuncs.quickSort3(0, (-1 + tempArray.Length), ref tempArray);
+            QuickSortFuncs.quickSort2(ref tempArray,0, (-1 + tempArray.Length));
+            stopwatch.Stop();
+            scoreLabel.Text = stopwatch.ElapsedMilliseconds.ToString();
 
-            long end = Stopwatch.GetTimestamp();
-
-            scoreLabel.Text = (end - start).ToString();
+           
             sortedArray = tempArray;
             tempArray = arrayCopy;
         }
@@ -129,50 +133,53 @@ namespace zad
         private void quickSort3_Click(object sender, EventArgs e)
         {
             var arrayCopy = tempArray;
-            long start = Stopwatch.GetTimestamp();
 
-            QuickSortFuncs.quickSort2(ref tempArray, 0, (-1 + tempArray.Length));
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+         
 
-            long end = Stopwatch.GetTimestamp();
-
-            scoreLabel.Text = (end - start).ToString();
+            QuickSortFuncs.quickSort3(0, (-1 + tempArray.Length),ref tempArray);
+           
+          
+            stopwatch.Stop();
+            scoreLabel.Text = stopwatch.ElapsedMilliseconds.ToString();
             sortedArray = tempArray;
             tempArray = arrayCopy;
         }
         private void mergesort1_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = MergeSortFuncs.mergeSort1(tempArray, 0, tempArray.Length - 1);
+                scoreLabel.Text = MergeSortFuncs.mergeSort1(tempArray, 0, tempArray.Length - 1,ref sortedArray);
         }
 
         private void mergesort2_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = MergeSortFuncs.mergeSort2(tempArray, 0, tempArray.Length - 1);
+                scoreLabel.Text = MergeSortFuncs.mergeSort2(tempArray, 0, tempArray.Length - 1, ref sortedArray);
         }
 
         private void mergesort3_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = MergeSortFuncs.mergeSort3(tempArray, 0, tempArray.Length - 1);
+                scoreLabel.Text = MergeSortFuncs.mergeSort3(tempArray, 0, tempArray.Length - 1, ref sortedArray);
         }
 
         private void heapsort1_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = HeapSortFuncs.heapSort1(tempArray, tempArray.Length);
+                scoreLabel.Text = HeapSortFuncs.heapSort1(tempArray, tempArray.Length, ref sortedArray);
         }
 
         private void heapsort2_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = HeapSortFuncs.heapSort2(tempArray, tempArray.Length);
+                scoreLabel.Text = HeapSortFuncs.heapSort2(tempArray, tempArray.Length, ref sortedArray);
         }
 
         private void heapsort3_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = HeapSortFuncs.heapSort3(tempArray, tempArray.Length);
+                scoreLabel.Text = HeapSortFuncs.heapSort3(tempArray, tempArray.Length, ref sortedArray);
 
         }
 
@@ -211,7 +218,7 @@ namespace zad
                 {
                     dataString += "\n " + sortedArray[i].ToString();
                 }
-                MessageBox.Show(dataString, "Sorted data", MessageBoxButtons.OK);
+                sortedDataTextBox.Text = dataString;
             }
         }
 
@@ -224,13 +231,14 @@ namespace zad
             var amountOfNumbers = Int64.Parse(textboxAmountOfNumbers.Text);
             int  minimalna = Int32.Parse(min.Text);
             int maksymalna = Int32.Parse(max.Text);
-            //j = numericUpDown1.Value;
+       
             for (int j = 0; j <=  amountOfNumbers; j++)
             {
                 
                 text += rnd.Next(minimalna, maksymalna)+"\n";
-               // Console.WriteLine(rnd.Next());
+           
             }
+
             Stream bubbleSortStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "|*.txt";
@@ -248,18 +256,6 @@ namespace zad
                     bubbleSortStream.Close();
                 }
             }
-        }
-
-      
-
-        private void scoreLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void min_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

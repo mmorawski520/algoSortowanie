@@ -15,7 +15,7 @@ namespace zad
 
             if (prawy <= lewy) return;
 
-            int i = lewy - 1, j = prawy + 1,
+            int i = lewy - 1, j = -1+ prawy,
               pivot = tab[(lewy + prawy) / 2];
 
             while (true)
