@@ -62,6 +62,8 @@ namespace zad
             this.mergesort2 = new System.Windows.Forms.Button();
             this.mergesort1 = new System.Windows.Forms.Button();
             this.sortedDataTextBox = new System.Windows.Forms.RichTextBox();
+            this.IleSortowan = new System.Windows.Forms.TextBox();
+            this.fastestSortLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -88,7 +90,6 @@ namespace zad
             this.scoreLabel.Size = new System.Drawing.Size(59, 13);
             this.scoreLabel.TabIndex = 1;
             this.scoreLabel.Text = "scoreLabel";
-        
             // 
             // button2
             // 
@@ -298,7 +299,6 @@ namespace zad
             this.min.Name = "min";
             this.min.Size = new System.Drawing.Size(100, 20);
             this.min.TabIndex = 20;
-            
             // 
             // generateFileBtn
             // 
@@ -402,11 +402,29 @@ namespace zad
             this.sortedDataTextBox.TabIndex = 20;
             this.sortedDataTextBox.Text = "";
             // 
+            // IleSortowan
+            // 
+            this.IleSortowan.Location = new System.Drawing.Point(427, 297);
+            this.IleSortowan.Name = "IleSortowan";
+            this.IleSortowan.Size = new System.Drawing.Size(100, 20);
+            this.IleSortowan.TabIndex = 21;
+            // 
+            // fastestSortLabel
+            // 
+            this.fastestSortLabel.AutoSize = true;
+            this.fastestSortLabel.Location = new System.Drawing.Point(161, 297);
+            this.fastestSortLabel.Name = "fastestSortLabel";
+            this.fastestSortLabel.Size = new System.Drawing.Size(35, 13);
+            this.fastestSortLabel.TabIndex = 22;
+            this.fastestSortLabel.Text = "label4";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 353);
+            this.Controls.Add(this.fastestSortLabel);
+            this.Controls.Add(this.IleSortowan);
             this.Controls.Add(this.sortedDataTextBox);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -467,6 +485,8 @@ namespace zad
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox sortedDataTextBox;
+        private System.Windows.Forms.TextBox IleSortowan;
+        private System.Windows.Forms.Label fastestSortLabel;
     }
 }
 

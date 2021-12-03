@@ -19,7 +19,10 @@ namespace zad
         int[]tempArray;
         //Ta zmienna przechowuje posortowana tablice przekazuje ja do funkcji/metod aby zmienic jej wartosc
         int[] sortedArray;
-        
+
+        //string currentSort;
+        string fastestSort;
+        long fastestSortTime=10000;
         public Form1()
         {
             InitializeComponent();
@@ -79,128 +82,351 @@ namespace zad
         private void btnInsertionSort1(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = "insertionSort time "+InsertionSort.insertionSort1(tempArray, tempArray.Length,ref sortedArray);
-            
+             
+            {
+                var sortScore = " ";
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    sortScore =InsertionSort.insertionSort1(tempArray, tempArray.Length, ref sortedArray);
+                    licznik++;
+                }
+                scoreLabel.Text = sortScore.ToString();
+                if (Int64.Parse(sortScore)<fastestSortTime)
+                {
+                       fastestSortLabel.Text  = "the fastest sort  insertion sort 1 : " + sortScore.ToString();
+                }
+            }
+          
         }
 
         private void btnInsertionSort2(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = "insertionSort time "+InsertionSort.insertionSort2(tempArray, tempArray.Length, ref sortedArray);
+
+            {
+                var sortScore = " ";
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    sortScore = InsertionSort.insertionSort2(tempArray, tempArray.Length, ref sortedArray);
+                    licznik++;
+                }
+                scoreLabel.Text =  sortScore.ToString();
+                if (Int64.Parse(sortScore) < fastestSortTime)
+                {
+                    fastestSortLabel.Text = "the fastest sort insertion sort 2 : " + sortScore.ToString();
+                }
+            }
+
         }
 
         private void btnInsertionSort3(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = "insertionSort time "+InsertionSort.insertionSort3(tempArray, tempArray.Length, ref sortedArray);
+
+            {
+                var sortScore = " ";
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    sortScore = InsertionSort.insertionSort3(tempArray, tempArray.Length, ref sortedArray);
+                    licznik++;
+                }
+                scoreLabel.Text = sortScore.ToString();
+                if (Int64.Parse(sortScore) < fastestSortTime)
+                {
+                    fastestSortLabel.Text = "the fastest sort insertion sort 3 : " + sortScore.ToString();
+                }
+
+            }
+
         }
         private void quickSort1_Click(object sender, EventArgs e)
         {
 
             if (tempArray != null)
+
             {
-                var arrayCopy = tempArray;
-                var stopwatch = new Stopwatch();
-                stopwatch.Start();
-                stopwatch.Stop();
+                var sortScore = " ";
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    var arrayCopy = tempArray;
 
-                QuickSortFuncs.quickSort1(ref tempArray, 0, (tempArray.Length));
+                    var stopwatch = new Stopwatch();
+                    stopwatch.Start();
 
 
+                    QuickSortFuncs.quickSort1(ref tempArray, 0, (-1 + tempArray.Length));
 
-                scoreLabel.Text = stopwatch.ElapsedMilliseconds.ToString();
-                sortedArray = tempArray;
-                tempArray = arrayCopy;
+
+                    stopwatch.Stop();
+                    sortScore = stopwatch.ElapsedMilliseconds.ToString();
+                    sortedArray = tempArray;
+                    tempArray = arrayCopy;
+                }
+                scoreLabel.Text = "quick sort time " + sortScore.ToString();
+                if (Int64.Parse(sortScore) < fastestSortTime)
+                {
+                    fastestSortLabel.Text = "the fastest sort quick sort 1 : " + sortScore.ToString();
+                }
             }
         }
 
         private void quickSort2_Click(object sender, EventArgs e)
         {
-            var arrayCopy = tempArray;
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
            
+            if (tempArray != null)
 
-            QuickSortFuncs.quickSort2(ref tempArray,0, (-1 + tempArray.Length));
-            stopwatch.Stop();
-            scoreLabel.Text = stopwatch.ElapsedMilliseconds.ToString();
+            {
+                var sortScore = " ";
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    var arrayCopy = tempArray;
 
-           
-            sortedArray = tempArray;
-            tempArray = arrayCopy;
+                    var stopwatch = new Stopwatch();
+                    stopwatch.Start();
+
+
+                    QuickSortFuncs.quickSort2(ref tempArray, 0, (-1 + tempArray.Length));
+
+
+                    stopwatch.Stop();
+                    sortScore = stopwatch.ElapsedMilliseconds.ToString();
+                    sortedArray = tempArray;
+                    tempArray = arrayCopy;
+                }
+                scoreLabel.Text =  sortScore.ToString();
+                if (Int64.Parse(sortScore) < fastestSortTime)
+                {
+                    fastestSortLabel.Text = "the fastest sort quick sort 2 : " + sortScore.ToString();
+                }
+            }
         }
 
         private void quickSort3_Click(object sender, EventArgs e)
         {
-            var arrayCopy = tempArray;
 
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
-         
+            if (tempArray != null)
 
-            QuickSortFuncs.quickSort3(0, (-1 + tempArray.Length),ref tempArray);
+            {
+                var sortScore = " ";
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    var arrayCopy = tempArray;
+
+                    var stopwatch = new Stopwatch();
+                    stopwatch.Start();
+
+
+                    QuickSortFuncs.quickSort3(0, (-1 + tempArray.Length), ref tempArray);
+
+
+                    stopwatch.Stop();
+                    sortScore = stopwatch.ElapsedMilliseconds.ToString();
+                    sortedArray = tempArray;
+                    tempArray = arrayCopy;
+                }
+                scoreLabel.Text = sortScore.ToString();
+                if (Int64.Parse(sortScore) < fastestSortTime)
+                {
+                    fastestSortLabel.Text = "the fastest sort quick sort 3 : " + sortScore.ToString();
+                }
+            }
            
-          
-            stopwatch.Stop();
-            scoreLabel.Text = stopwatch.ElapsedMilliseconds.ToString();
-            sortedArray = tempArray;
-            tempArray = arrayCopy;
         }
         private void mergesort1_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = MergeSortFuncs.mergeSort1(tempArray, 0, tempArray.Length - 1,ref sortedArray);
+
+            {
+                var sortScore = " ";
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    sortScore = MergeSortFuncs.mergeSort1(tempArray, 0, tempArray.Length - 1, ref sortedArray);
+                    licznik++;
+                }
+                scoreLabel.Text = "merge sort time " + sortScore.ToString();
+                if (Int64.Parse(sortScore) < fastestSortTime)
+                {
+                    fastestSortLabel.Text = "the fastest merge quick sort 1 : " + sortScore.ToString();
+                }
+            }
+
+
         }
 
         private void mergesort2_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = MergeSortFuncs.mergeSort2(tempArray, 0, tempArray.Length - 1, ref sortedArray);
+
+            {
+                var sortScore = " ";
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    sortScore = MergeSortFuncs.mergeSort2(tempArray, 0, tempArray.Length - 1, ref sortedArray);
+                    licznik++;
+                }
+                scoreLabel.Text = "merge sort time " + sortScore.ToString();
+                if (Int64.Parse(sortScore) < fastestSortTime)
+                {
+                    fastestSortLabel.Text = "the fastest sort merge sort 2 : " + sortScore.ToString();
+                }
+
+            }
         }
 
         private void mergesort3_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = MergeSortFuncs.mergeSort3(tempArray, 0, tempArray.Length - 1, ref sortedArray);
+
+            {
+                var sortScore = " ";
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    sortScore =  MergeSortFuncs.mergeSort3(tempArray, 0, tempArray.Length - 1, ref sortedArray);
+                    licznik++;
+                }
+                scoreLabel.Text = "merge sort time " + sortScore.ToString();
+                if (Int64.Parse(sortScore) < fastestSortTime)
+                {
+                    fastestSortLabel.Text = "the fastest sort merge sort 3 : " + sortScore.ToString();
+                }
+            }
         }
 
         private void heapsort1_Click(object sender, EventArgs e)
         {
+            var sortScore = " ";
             if (tempArray != null)
-                scoreLabel.Text = HeapSortFuncs.heapSort1(tempArray, tempArray.Length, ref sortedArray);
+
+            {
+                
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    sortScore =HeapSortFuncs.heapSort1(tempArray, tempArray.Length, ref sortedArray);
+                    licznik++;
+                }
+            }
+            scoreLabel.Text = "heap sort time " + sortScore.ToString();
+            if (Int64.Parse(sortScore) < fastestSortTime)
+            {
+                fastestSortLabel.Text = "the fastest sort heap sort 1 : " + sortScore.ToString();
+            }
         }
 
         private void heapsort2_Click(object sender, EventArgs e)
         {
+            var sortScore = " ";
             if (tempArray != null)
-                scoreLabel.Text = HeapSortFuncs.heapSort2(tempArray, tempArray.Length, ref sortedArray);
+
+            {
+           
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    sortScore =   HeapSortFuncs.heapSort2(tempArray, tempArray.Length, ref sortedArray);
+                    licznik++;
+                }
+            }
+            scoreLabel.Text = "heap sort time " + sortScore.ToString();
+            if (Int64.Parse(sortScore) < fastestSortTime)
+            {
+                fastestSortLabel.Text = "the fastest sort heap sort 2 : " + sortScore.ToString();
+            }
         }
 
         private void heapsort3_Click(object sender, EventArgs e)
         {
+            var sortScore = " ";
             if (tempArray != null)
-                scoreLabel.Text = HeapSortFuncs.heapSort3(tempArray, tempArray.Length, ref sortedArray);
 
+            {
+              
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    sortScore =  HeapSortFuncs.heapSort3(tempArray, tempArray.Length, ref sortedArray);
+                    licznik++;
+                }
+            }
+            scoreLabel.Text = "heap sort time " + sortScore.ToString();
+            if (Int64.Parse(sortScore) < fastestSortTime)
+            {
+                fastestSortLabel.Text = "the fastest sort heap sort 3 : " + sortScore.ToString();
+            }
         }
 
         private void bubbleSort1_Click(object sender, EventArgs e)
         {
+       
+           
             if (tempArray != null)
-                scoreLabel.Text = "insertionSort time " + bubbleSortFuncs.bubbleSort(tempArray, tempArray.Length, ref sortedArray);
+
+            {
+                var sortScore = " ";
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    sortScore =  bubbleSortFuncs.bubbleSort(tempArray, tempArray.Length, ref sortedArray);
+                    licznik++;
+                }
+                scoreLabel.Text =  sortScore.ToString();
+                if (Int64.Parse(sortScore) < fastestSortTime)
+                {
+                    fastestSortLabel.Text = "the fastest sort bubble sort 1 : " + sortScore.ToString();
+                }
+               
+            }
         }
 
 
         private void bubbleSort2_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = bubbleSortFuncs.bubbleSort2(tempArray, tempArray.Length, ref sortedArray);
+
+            {
+                var sortScore = " ";
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    sortScore = bubbleSortFuncs.bubbleSort2(tempArray, tempArray.Length, ref sortedArray);
+                    licznik++;
+                }
+                scoreLabel.Text = "bubble sort time " + sortScore.ToString();
+                if (Int64.Parse(sortScore) < fastestSortTime)
+                {
+                    fastestSortLabel.Text = "the fastest sort bubble sort 2 : " + sortScore.ToString();
+                }
+            }
         }
 
 
         private void bubbleSort3_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
-                scoreLabel.Text = bubbleSortFuncs.bubbleSort3(tempArray, tempArray.Length, ref sortedArray);
+
+            {
+                var sortScore = " ";
+                var licznik = 0;
+                while (licznik < Int32.Parse(IleSortowan.Text))
+                {
+                    sortScore = bubbleSortFuncs.bubbleSort3(tempArray, tempArray.Length, ref sortedArray);
+                    licznik++;
+                }
+                scoreLabel.Text = "bubble sort time " + sortScore.ToString();
+                if (Int64.Parse(sortScore) < fastestSortTime)
+                {
+                    fastestSortLabel.Text = "the fastest sort bubble sort 3 : " + sortScore.ToString();
+                }
+            }
         }
 
         //Pozostale przyciski

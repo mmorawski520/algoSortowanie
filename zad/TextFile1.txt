@@ -2,3 +2,35 @@
 https://www.programiz.com/dsa/merge-sort
 https://www.educba.com/heap-sort-in-c-plus-plus/
 Dziennik zdarzeń
+oct 29-2021
+1 commit initial commit - mateusz
+2 commit stworzenie layoutu - mateusz
+3 commit stworzenie sortowan
+	1 insertion sort - mateusz
+	2 insertion sort - ania
+	3 insertion sort - mateusz
+4 commit - naprawa timera
+
+nov 5-2021
+5 commit - stworzenie sortowan
+	1 bubble sort - ania
+	2 bubble sort - mateusz
+	3 bubble sort - ania
+6 commit - przeniesienie bubble sortow do klasy bubbleSortFuncs
+	1 bubble sort - ania
+	2 bubble sort - mateusz
+	3 bubble sort - ania
+
+7 commit - stworzenie sortowan quick sort 
+	1 bubble sort - mateusz
+	2 bubble sort -  ania
+	3 bubble sort - mateusz
+8 commit - przeniesienie bubble sortow do klasy quick sort 
+	1 bubble sort - mateusz
+	2 bubble sort -  ania
+	3 bubble sort - mateusz
+9 commit - zapis plikow - mateusz
+10 commit poprawa layoutu -ania
+
+nov 26-2021
+	... reszta jest widoczna na gh
