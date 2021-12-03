@@ -13,6 +13,10 @@ using System.Diagnostics;
 using System.Threading;
 namespace zad
 {
+
+    //*******************
+    // commity na gh są trochę nieczytlene więc powstał plik txt z dziennikiem zdarzen
+    //*******************
     public partial class Form1 : Form
     {   
         //Ta zmienna przechowuje wczytana tablice przekazuje ja do funkcji/metod i nie zmieniam jej wartosci
