@@ -9,33 +9,28 @@ namespace zad
 {
     public class InsertionSort
     {
-        public static string insertionSort1(int[] tab, int size, ref int[] sortedArray)
+        public static void insertionSort1(int[] a, int s, ref int[] sortedArray)
         {
-            int temp, j;
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
 
-            for (int i = 1; i < size; i++)
+            for (int i = 0; i < s - 1; i++)
             {
-                temp = tab[i];
-
-                for (j = i - 1; j >= 0 && tab[j] > temp; j--)
-                    tab[j + 1] = tab[j];
-
-                tab[j + 1] = temp;
+                int j = i + 1;
+                int key = a[j];
+                while (i >= 0 && a[i] > key)
+                {
+                    a[i + 1] = a[i];
+                    i--;
+                }
+                a[i + 1] = key;
             }
-            stopwatch.Stop();
-            sortedArray = tab;
-            return stopwatch.ElapsedMilliseconds.ToString();
+
+            sortedArray = a;
 
         }
 
-        public static string insertionSort2(int[] tab, int n, ref int[] sortedArray)
+        public static void insertionSort2(int[] tab, int n, ref int[] sortedArray)
         {
             int pom, j;
-         
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
 
             for (int i = 1; i < n; i++)
             {
@@ -50,17 +45,13 @@ namespace zad
                 tab[j + 1] = pom;
             }
 
-            stopwatch.Stop();
             sortedArray = tab;
-            return stopwatch.ElapsedMilliseconds.ToString();
+
         }
 
-        public static string insertionSort3(int[] d, int N, ref int[] sortedArray)
+        public static void insertionSort3(int[] d, int N, ref int[] sortedArray)
         {
             int j, i, x;
-
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
 
             for (j = N - 2; j >= 0; j--)
             {
@@ -74,9 +65,8 @@ namespace zad
                 d[i - 1] = x;
             }
 
-            stopwatch.Stop();
             sortedArray = d;
-            return stopwatch.ElapsedMilliseconds.ToString();
+
         }
     }
 }

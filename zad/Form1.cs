@@ -18,22 +18,19 @@ namespace zad
     // commity na gh są trochę nieczytlene więc powstał plik txt z dziennikiem zdarzen
     //*******************
     public partial class Form1 : Form
-    {   
+    {
         //Ta zmienna przechowuje wczytana tablice przekazuje ja do funkcji/metod i nie zmieniam jej wartosci
-        int[]tempArray;
+        int[] tempArray;
         //Ta zmienna przechowuje posortowana tablice przekazuje ja do funkcji/metod aby zmienic jej wartosc
         int[] sortedArray;
 
         //string currentSort;
         string fastestSort;
-        long fastestSortTime=10000;
+        long fastestSortTime = 10000;
         public Form1()
         {
             InitializeComponent();
         }
-        
-
-
 
         //ten void wczytuje dane z pliku wybranego przez uzytkownika
         void loading()
@@ -64,8 +61,10 @@ namespace zad
                         tempArray = new int[File.ReadLines(filePath).Count()];
                         foreach (string line in File.ReadLines(filePath))
                         {
-
-                            tempArray[counter] = Int32.Parse(line);
+                            if (!string.IsNullOrEmpty(line))
+                            {
+                                tempArray[counter] = Int32.Parse(line);
+                            }
                             counter++;
                         }
                     }
@@ -73,35 +72,40 @@ namespace zad
                 labelChoosenFile.Text = "Choosen file : " + filePath;
             }
         }
-        
+
         /* Przyciski do sortowania przez wstawianie 
          Funkcje do sortowania znajduja sie w odzielnym w pliku i specjalnej klasie
          jako argumenty trzeba podac nieposortowana tablice, dlugosc tej tablicy, oryginalna tablice sorted array
          wartosc sortedArray ulegnie zmianie poprzez referencje
-          
+
         Funkcje do sortowania zwracaja stringa z czasem poswieconym na sortowanie dzieki temu mozemy przypisac zwrocony czas do labela
-            
+
          */
 
         private void btnInsertionSort1(object sender, EventArgs e)
         {
             if (tempArray != null)
-             
+
             {
-                var sortScore = " ";
+
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
-                    sortScore =InsertionSort.insertionSort1(tempArray, tempArray.Length, ref sortedArray);
+
+                    InsertionSort.insertionSort1(tempArray, tempArray.Length, ref sortedArray);
                     licznik++;
                 }
-                scoreLabel.Text = sortScore.ToString();
-                if (Int64.Parse(sortScore)<fastestSortTime)
+                stopwatch.Stop();
+                scoreLabel.Text = "Insertion sort 1 time" + stopwatch.ElapsedMilliseconds;
+                if (Int64.Parse(stopwatch.ElapsedMilliseconds.ToString()) < fastestSortTime)
                 {
-                       fastestSortLabel.Text  = "the fastest sort  insertion sort 1 : " + sortScore.ToString();
+                    fastestSortLabel.Text = "the fastest sort  insertion sort 1 : " + stopwatch.ElapsedMilliseconds.ToString();
                 }
             }
-          
+
         }
 
         private void btnInsertionSort2(object sender, EventArgs e)
@@ -109,17 +113,21 @@ namespace zad
             if (tempArray != null)
 
             {
-                var sortScore = " ";
+
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
-                    sortScore = InsertionSort.insertionSort2(tempArray, tempArray.Length, ref sortedArray);
+
+                    InsertionSort.insertionSort2(tempArray, tempArray.Length, ref sortedArray);
                     licznik++;
                 }
-                scoreLabel.Text =  sortScore.ToString();
-                if (Int64.Parse(sortScore) < fastestSortTime)
+                stopwatch.Stop();
+                scoreLabel.Text = "Insertion sort 1 time" + stopwatch.ElapsedMilliseconds;
+                if (Int64.Parse(stopwatch.ElapsedMilliseconds.ToString()) < fastestSortTime)
                 {
-                    fastestSortLabel.Text = "the fastest sort insertion sort 2 : " + sortScore.ToString();
+                    fastestSortLabel.Text = "the fastest sort insertion sort 2 : " + stopwatch.ElapsedMilliseconds.ToString();
                 }
             }
 
@@ -132,20 +140,25 @@ namespace zad
             {
                 var sortScore = " ";
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
-                    sortScore = InsertionSort.insertionSort3(tempArray, tempArray.Length, ref sortedArray);
+
+                    InsertionSort.insertionSort3(tempArray, tempArray.Length, ref sortedArray);
                     licznik++;
                 }
-                scoreLabel.Text = sortScore.ToString();
-                if (Int64.Parse(sortScore) < fastestSortTime)
+                stopwatch.Stop();
+                scoreLabel.Text = "Insertion sort 1 time" + stopwatch.ElapsedMilliseconds;
+                if (Int64.Parse(stopwatch.ElapsedMilliseconds.ToString()) < fastestSortTime)
                 {
-                    fastestSortLabel.Text = "the fastest sort insertion sort 3 : " + sortScore.ToString();
+                    fastestSortLabel.Text = "the fastest sort insertion sort 3 : " + stopwatch.ElapsedMilliseconds.ToString();
                 }
 
             }
 
         }
+
         private void quickSort1_Click(object sender, EventArgs e)
         {
 
@@ -154,22 +167,21 @@ namespace zad
             {
                 var sortScore = " ";
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                var arrayCopy = tempArray;
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
-                    var arrayCopy = tempArray;
-
-                    var stopwatch = new Stopwatch();
-                    stopwatch.Start();
-
 
                     QuickSortFuncs.quickSort1(ref tempArray, 0, (-1 + tempArray.Length));
 
-
-                    stopwatch.Stop();
-                    sortScore = stopwatch.ElapsedMilliseconds.ToString();
-                    sortedArray = tempArray;
-                    tempArray = arrayCopy;
+                    licznik++;
                 }
+
+                stopwatch.Stop();
+                sortScore = stopwatch.ElapsedMilliseconds.ToString();
+                sortedArray = tempArray;
+                tempArray = arrayCopy;
                 scoreLabel.Text = "quick sort time " + sortScore.ToString();
                 if (Int64.Parse(sortScore) < fastestSortTime)
                 {
@@ -180,29 +192,29 @@ namespace zad
 
         private void quickSort2_Click(object sender, EventArgs e)
         {
-           
+
             if (tempArray != null)
 
             {
                 var sortScore = " ";
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
                     var arrayCopy = tempArray;
 
                     var stopwatch = new Stopwatch();
                     stopwatch.Start();
 
-
                     QuickSortFuncs.quickSort2(ref tempArray, 0, (-1 + tempArray.Length));
-
 
                     stopwatch.Stop();
                     sortScore = stopwatch.ElapsedMilliseconds.ToString();
                     sortedArray = tempArray;
                     tempArray = arrayCopy;
+
+                    licznik++;
                 }
-                scoreLabel.Text =  sortScore.ToString();
+                scoreLabel.Text = sortScore.ToString();
                 if (Int64.Parse(sortScore) < fastestSortTime)
                 {
                     fastestSortLabel.Text = "the fastest sort quick sort 2 : " + sortScore.ToString();
@@ -218,21 +230,21 @@ namespace zad
             {
                 var sortScore = " ";
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
                     var arrayCopy = tempArray;
 
                     var stopwatch = new Stopwatch();
                     stopwatch.Start();
 
-
                     QuickSortFuncs.quickSort3(0, (-1 + tempArray.Length), ref tempArray);
-
 
                     stopwatch.Stop();
                     sortScore = stopwatch.ElapsedMilliseconds.ToString();
                     sortedArray = tempArray;
                     tempArray = arrayCopy;
+
+                    licznik++;
                 }
                 scoreLabel.Text = sortScore.ToString();
                 if (Int64.Parse(sortScore) < fastestSortTime)
@@ -240,7 +252,7 @@ namespace zad
                     fastestSortLabel.Text = "the fastest sort quick sort 3 : " + sortScore.ToString();
                 }
             }
-           
+
         }
         private void mergesort1_Click(object sender, EventArgs e)
         {
@@ -249,18 +261,21 @@ namespace zad
             {
                 var sortScore = " ";
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
-                    sortScore = MergeSortFuncs.mergeSort1(tempArray, 0, tempArray.Length - 1, ref sortedArray);
+                    MergeSortFuncs.mergeSort1(tempArray, 0, tempArray.Length - 1, ref sortedArray);
                     licznik++;
                 }
+                stopwatch.Stop();
+                sortScore = stopwatch.ElapsedMilliseconds.ToString();
                 scoreLabel.Text = "merge sort time " + sortScore.ToString();
                 if (Int64.Parse(sortScore) < fastestSortTime)
                 {
                     fastestSortLabel.Text = "the fastest merge quick sort 1 : " + sortScore.ToString();
                 }
             }
-
 
         }
 
@@ -271,12 +286,16 @@ namespace zad
             {
                 var sortScore = " ";
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
-                    sortScore = MergeSortFuncs.mergeSort2(tempArray, 0, tempArray.Length - 1, ref sortedArray);
+                    MergeSortFuncs.mergeSort2(tempArray, 0, tempArray.Length - 1, ref sortedArray);
                     licznik++;
                 }
-                scoreLabel.Text = "merge sort time " + sortScore.ToString();
+                stopwatch.Stop();
+                sortScore = stopwatch.ElapsedMilliseconds.ToString();
+                scoreLabel.Text = "merge sort 2 time " + sortScore.ToString();
                 if (Int64.Parse(sortScore) < fastestSortTime)
                 {
                     fastestSortLabel.Text = "the fastest sort merge sort 2 : " + sortScore.ToString();
@@ -292,12 +311,16 @@ namespace zad
             {
                 var sortScore = " ";
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
-                    sortScore =  MergeSortFuncs.mergeSort3(tempArray, 0, tempArray.Length - 1, ref sortedArray);
+                    MergeSortFuncs.mergeSort3(tempArray, 0, tempArray.Length - 1, ref sortedArray);
                     licznik++;
                 }
-                scoreLabel.Text = "merge sort time " + sortScore.ToString();
+                stopwatch.Stop();
+                sortScore = stopwatch.ElapsedMilliseconds.ToString();
+                scoreLabel.Text = "merge sort 3 time " + sortScore.ToString();
                 if (Int64.Parse(sortScore) < fastestSortTime)
                 {
                     fastestSortLabel.Text = "the fastest sort merge sort 3 : " + sortScore.ToString();
@@ -311,11 +334,11 @@ namespace zad
             if (tempArray != null)
 
             {
-                
+
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
-                    sortScore =HeapSortFuncs.heapSort1(tempArray, tempArray.Length, ref sortedArray);
+                    sortScore = HeapSortFuncs.heapSort2(tempArray, tempArray.Length, ref sortedArray);
                     licznik++;
                 }
             }
@@ -332,11 +355,11 @@ namespace zad
             if (tempArray != null)
 
             {
-           
+
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
-                    sortScore =   HeapSortFuncs.heapSort2(tempArray, tempArray.Length, ref sortedArray);
+                    sortScore = HeapSortFuncs.heapSort3(tempArray, tempArray.Length, ref sortedArray);
                     licznik++;
                 }
             }
@@ -353,11 +376,11 @@ namespace zad
             if (tempArray != null)
 
             {
-              
+
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
-                    sortScore =  HeapSortFuncs.heapSort3(tempArray, tempArray.Length, ref sortedArray);
+                    sortScore = HeapSortFuncs.heapSort1(tempArray, tempArray.Length, ref sortedArray);
                     licznik++;
                 }
             }
@@ -370,65 +393,73 @@ namespace zad
 
         private void bubbleSort1_Click(object sender, EventArgs e)
         {
-       
-           
+
             if (tempArray != null)
 
             {
-                var sortScore = " ";
+
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
-                    sortScore =  bubbleSortFuncs.bubbleSort(tempArray, tempArray.Length, ref sortedArray);
+                    bubbleSortFuncs.bubbleSort(tempArray, tempArray.Length, ref sortedArray);
                     licznik++;
                 }
-                scoreLabel.Text =  sortScore.ToString();
-                if (Int64.Parse(sortScore) < fastestSortTime)
+                stopwatch.Stop();
+                scoreLabel.Text = "bubble sort 1 time " + stopwatch.ElapsedMilliseconds;
+
+                if (Int64.Parse(stopwatch.ElapsedMilliseconds.ToString()) < fastestSortTime) ;
                 {
-                    fastestSortLabel.Text = "the fastest sort bubble sort 1 : " + sortScore.ToString();
+                    fastestSortLabel.Text = "the fastest sort bubble sort 1 : " + stopwatch.ElapsedMilliseconds.ToString();
                 }
-               
+
             }
         }
-
 
         private void bubbleSort2_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
 
             {
-                var sortScore = " ";
+
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
-                    sortScore = bubbleSortFuncs.bubbleSort2(tempArray, tempArray.Length, ref sortedArray);
+                    bubbleSortFuncs.bubbleSort2(tempArray, tempArray.Length, ref sortedArray);
                     licznik++;
                 }
-                scoreLabel.Text = "bubble sort time " + sortScore.ToString();
-                if (Int64.Parse(sortScore) < fastestSortTime)
+                stopwatch.Stop();
+                scoreLabel.Text = "bubble sort 1 time " + stopwatch.ElapsedMilliseconds;
+                if (Int64.Parse(stopwatch.ElapsedMilliseconds.ToString()) < fastestSortTime)
                 {
-                    fastestSortLabel.Text = "the fastest sort bubble sort 2 : " + sortScore.ToString();
+                    fastestSortLabel.Text = "the fastest sort bubble sort 2 : " + stopwatch.ElapsedMilliseconds.ToString();
                 }
             }
         }
-
 
         private void bubbleSort3_Click(object sender, EventArgs e)
         {
             if (tempArray != null)
 
             {
-                var sortScore = " ";
+
                 var licznik = 0;
-                while (licznik < Int32.Parse(IleSortowan.Text))
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                while (licznik < Int32.Parse(IleSortowanTextBox.Text))
                 {
-                    sortScore = bubbleSortFuncs.bubbleSort3(tempArray, tempArray.Length, ref sortedArray);
+                    bubbleSortFuncs.bubbleSort3(tempArray, tempArray.Length, ref sortedArray);
                     licznik++;
                 }
-                scoreLabel.Text = "bubble sort time " + sortScore.ToString();
-                if (Int64.Parse(sortScore) < fastestSortTime)
+                stopwatch.Stop();
+                scoreLabel.Text = "bubble sort 1 time " + stopwatch.ElapsedMilliseconds;
+
+                if (Int64.Parse(stopwatch.ElapsedMilliseconds.ToString()) < fastestSortTime)
                 {
-                    fastestSortLabel.Text = "the fastest sort bubble sort 3 : " + sortScore.ToString();
+                    fastestSortLabel.Text = "the fastest sort bubble sort 3 : " + stopwatch.ElapsedMilliseconds.ToString();
                 }
             }
         }
@@ -444,7 +475,7 @@ namespace zad
             var dataString = "Sorted data ";
             if (sortedArray != null)
             {
-                for(int i=0;i<sortedArray.Length;i++)
+                for (int i = 0; i < sortedArray.Length; i++)
                 {
                     dataString += "\n " + sortedArray[i].ToString();
                 }
@@ -452,39 +483,51 @@ namespace zad
             }
         }
 
-
-      
         private void generateFileBtn_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            string text ="";
+            string text = "";
             var amountOfNumbers = Int64.Parse(textboxAmountOfNumbers.Text);
-            int  minimalna = Int32.Parse(min.Text);
-            int maksymalna = Int32.Parse(max.Text);
-       
-            for (int j = 0; j <=  amountOfNumbers; j++)
-            {
-                
-                text += rnd.Next(minimalna, maksymalna)+"\n";
-           
-            }
+            int minimalna = Int32.Parse(minTextBox.Text);
+            int maksymalna = Int32.Parse(maxTextBox.Text);
 
-            Stream bubbleSortStream;
+            for (int j = 0; j <= amountOfNumbers; j++)
+            {
+
+                text += rnd.Next(minimalna, maksymalna) + "\n";
+
+            }
+       
+            Stream fileStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "|*.txt";
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                if ((bubbleSortStream = saveFileDialog1.OpenFile()) != null)
+                if ((fileStream = saveFileDialog1.OpenFile()) != null)
                 {
-                    using (StreamWriter bubbleSortWriter = new StreamWriter(bubbleSortStream))
+                    using (StreamWriter fileWriter = new StreamWriter(fileStream))
                     {
-                        bubbleSortWriter.WriteLine(text);
-                        bubbleSortWriter.Flush();
-                        bubbleSortWriter.Close();
+                        fileWriter.WriteLine(text);
+                        fileWriter.Flush();
+
+                        fileWriter.Close();
                     }
-                    bubbleSortStream.Close();
+                    fileStream.Close();
                 }
+            }
+        }
+
+        private void buttonUnsortedData_Click(object sender, EventArgs e)
+        {
+            var dataString = "Unsorted data ";
+            if (tempArray != null)
+            {
+                for (int i = 0; i < tempArray.Length; i++)
+                {
+                    dataString += "\n " + tempArray[i].ToString();
+                }
+                sortedDataTextBox.Text = dataString;
             }
         }
     }

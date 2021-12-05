@@ -47,11 +47,11 @@ namespace zad
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.max = new System.Windows.Forms.TextBox();
+            this.maxTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textboxAmountOfNumbers = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.min = new System.Windows.Forms.TextBox();
+            this.labelIloscLiczb = new System.Windows.Forms.Label();
+            this.minTextBox = new System.Windows.Forms.TextBox();
             this.generateFileBtn = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.heapsort3 = new System.Windows.Forms.Button();
@@ -62,8 +62,10 @@ namespace zad
             this.mergesort2 = new System.Windows.Forms.Button();
             this.mergesort1 = new System.Windows.Forms.Button();
             this.sortedDataTextBox = new System.Windows.Forms.RichTextBox();
-            this.IleSortowan = new System.Windows.Forms.TextBox();
+            this.IleSortowanTextBox = new System.Windows.Forms.TextBox();
             this.fastestSortLabel = new System.Windows.Forms.Label();
+            this.labelIloscPowtorzen = new System.Windows.Forms.Label();
+            this.buttonUnsortedData = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -76,9 +78,9 @@ namespace zad
             // 
             this.button1.Location = new System.Drawing.Point(7, 19);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(86, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "insertion sort 1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnInsertionSort1);
             // 
@@ -95,9 +97,9 @@ namespace zad
             // 
             this.button2.Location = new System.Drawing.Point(88, 19);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(85, 23);
             this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
+            this.button2.Text = "insertion sort 2";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.btnInsertionSort2);
             // 
@@ -105,9 +107,9 @@ namespace zad
             // 
             this.button3.Location = new System.Drawing.Point(169, 19);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(85, 23);
             this.button3.TabIndex = 4;
-            this.button3.Text = "button3";
+            this.button3.Text = "insertion sort 3";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.btnInsertionSort3);
             // 
@@ -154,31 +156,31 @@ namespace zad
             // 
             // bubbleSort1
             // 
-            this.bubbleSort1.Location = new System.Drawing.Point(87, 19);
+            this.bubbleSort1.Location = new System.Drawing.Point(6, 19);
             this.bubbleSort1.Name = "bubbleSort1";
-            this.bubbleSort1.Size = new System.Drawing.Size(75, 23);
+            this.bubbleSort1.Size = new System.Drawing.Size(80, 23);
             this.bubbleSort1.TabIndex = 9;
-            this.bubbleSort1.Text = "bubbleSort1";
+            this.bubbleSort1.Text = "bubble sort 1";
             this.bubbleSort1.UseVisualStyleBackColor = true;
             this.bubbleSort1.Click += new System.EventHandler(this.bubbleSort1_Click);
             // 
             // bubbleSort2
             // 
-            this.bubbleSort2.Location = new System.Drawing.Point(168, 19);
+            this.bubbleSort2.Location = new System.Drawing.Point(87, 19);
             this.bubbleSort2.Name = "bubbleSort2";
-            this.bubbleSort2.Size = new System.Drawing.Size(75, 23);
+            this.bubbleSort2.Size = new System.Drawing.Size(80, 23);
             this.bubbleSort2.TabIndex = 10;
-            this.bubbleSort2.Text = "bubbleSort2";
+            this.bubbleSort2.Text = "bubble sort 2";
             this.bubbleSort2.UseVisualStyleBackColor = true;
             this.bubbleSort2.Click += new System.EventHandler(this.bubbleSort2_Click);
             // 
             // bubbleSort3
             // 
-            this.bubbleSort3.Location = new System.Drawing.Point(6, 19);
+            this.bubbleSort3.Location = new System.Drawing.Point(167, 19);
             this.bubbleSort3.Name = "bubbleSort3";
-            this.bubbleSort3.Size = new System.Drawing.Size(75, 23);
+            this.bubbleSort3.Size = new System.Drawing.Size(80, 23);
             this.bubbleSort3.TabIndex = 11;
-            this.bubbleSort3.Text = "bubbleSort3";
+            this.bubbleSort3.Text = "bubble sort 3";
             this.bubbleSort3.UseVisualStyleBackColor = true;
             this.bubbleSort3.Click += new System.EventHandler(this.bubbleSort3_Click);
             // 
@@ -188,7 +190,7 @@ namespace zad
             this.quickSort1.Name = "quickSort1";
             this.quickSort1.Size = new System.Drawing.Size(75, 23);
             this.quickSort1.TabIndex = 12;
-            this.quickSort1.Text = "quickSort1";
+            this.quickSort1.Text = "qucik sort 1";
             this.quickSort1.UseVisualStyleBackColor = true;
             this.quickSort1.Click += new System.EventHandler(this.quickSort1_Click);
             // 
@@ -198,7 +200,7 @@ namespace zad
             this.quickSort2.Name = "quickSort2";
             this.quickSort2.Size = new System.Drawing.Size(75, 23);
             this.quickSort2.TabIndex = 13;
-            this.quickSort2.Text = "quickSort2";
+            this.quickSort2.Text = "quick sort 2";
             this.quickSort2.UseVisualStyleBackColor = true;
             this.quickSort2.Click += new System.EventHandler(this.quickSort2_Click);
             // 
@@ -208,7 +210,7 @@ namespace zad
             this.quickSort3.Name = "quickSort3";
             this.quickSort3.Size = new System.Drawing.Size(75, 23);
             this.quickSort3.TabIndex = 14;
-            this.quickSort3.Text = "quickSort3";
+            this.quickSort3.Text = "quick sort 3";
             this.quickSort3.UseVisualStyleBackColor = true;
             this.quickSort3.Click += new System.EventHandler(this.quickSort3_Click);
             // 
@@ -239,11 +241,11 @@ namespace zad
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.max);
+            this.groupBox4.Controls.Add(this.maxTextBox);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.textboxAmountOfNumbers);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.min);
+            this.groupBox4.Controls.Add(this.labelIloscLiczb);
+            this.groupBox4.Controls.Add(this.minTextBox);
             this.groupBox4.Controls.Add(this.generateFileBtn);
             this.groupBox4.Location = new System.Drawing.Point(421, 152);
             this.groupBox4.Name = "groupBox4";
@@ -257,25 +259,26 @@ namespace zad
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(112, 97);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 13);
+            this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 22;
-            this.label3.Text = "PodajMaxLiczbe";
+            this.label3.Text = "Max number";
             // 
-            // max
+            // maxTextBox
             // 
-            this.max.Location = new System.Drawing.Point(6, 94);
-            this.max.Name = "max";
-            this.max.Size = new System.Drawing.Size(100, 20);
-            this.max.TabIndex = 21;
+            this.maxTextBox.Location = new System.Drawing.Point(6, 94);
+            this.maxTextBox.Name = "maxTextBox";
+            this.maxTextBox.Size = new System.Drawing.Size(100, 20);
+            this.maxTextBox.TabIndex = 21;
+            this.maxTextBox.Text = "2147483647";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(112, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
+            this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 21;
-            this.label2.Text = "PodajMinLiczbe";
+            this.label2.Text = "Min number";
             // 
             // textboxAmountOfNumbers
             // 
@@ -283,22 +286,24 @@ namespace zad
             this.textboxAmountOfNumbers.Name = "textboxAmountOfNumbers";
             this.textboxAmountOfNumbers.Size = new System.Drawing.Size(100, 20);
             this.textboxAmountOfNumbers.TabIndex = 1;
+            this.textboxAmountOfNumbers.Text = "25000";
             // 
-            // label1
+            // labelIloscLiczb
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "label1";
+            this.labelIloscLiczb.AutoSize = true;
+            this.labelIloscLiczb.Location = new System.Drawing.Point(112, 49);
+            this.labelIloscLiczb.Name = "labelIloscLiczb";
+            this.labelIloscLiczb.Size = new System.Drawing.Size(98, 13);
+            this.labelIloscLiczb.TabIndex = 20;
+            this.labelIloscLiczb.Text = "Amount of numbers";
             // 
-            // min
+            // minTextBox
             // 
-            this.min.Location = new System.Drawing.Point(6, 71);
-            this.min.Name = "min";
-            this.min.Size = new System.Drawing.Size(100, 20);
-            this.min.TabIndex = 20;
+            this.minTextBox.Location = new System.Drawing.Point(6, 71);
+            this.minTextBox.Name = "minTextBox";
+            this.minTextBox.Size = new System.Drawing.Size(100, 20);
+            this.minTextBox.TabIndex = 20;
+            this.minTextBox.Text = "0";
             // 
             // generateFileBtn
             // 
@@ -328,7 +333,7 @@ namespace zad
             this.heapsort3.Name = "heapsort3";
             this.heapsort3.Size = new System.Drawing.Size(75, 23);
             this.heapsort3.TabIndex = 2;
-            this.heapsort3.Text = "button6";
+            this.heapsort3.Text = "heap sort 3";
             this.heapsort3.UseVisualStyleBackColor = true;
             this.heapsort3.Click += new System.EventHandler(this.heapsort3_Click);
             // 
@@ -338,7 +343,7 @@ namespace zad
             this.heapsort2.Name = "heapsort2";
             this.heapsort2.Size = new System.Drawing.Size(75, 23);
             this.heapsort2.TabIndex = 1;
-            this.heapsort2.Text = "button5";
+            this.heapsort2.Text = "heap sort 2";
             this.heapsort2.UseVisualStyleBackColor = true;
             this.heapsort2.Click += new System.EventHandler(this.heapsort2_Click);
             // 
@@ -348,7 +353,7 @@ namespace zad
             this.heapsort1.Name = "heapsort1";
             this.heapsort1.Size = new System.Drawing.Size(75, 23);
             this.heapsort1.TabIndex = 0;
-            this.heapsort1.Text = "button4";
+            this.heapsort1.Text = "heap sort 1";
             this.heapsort1.UseVisualStyleBackColor = true;
             this.heapsort1.Click += new System.EventHandler(this.heapsort1_Click);
             // 
@@ -370,7 +375,7 @@ namespace zad
             this.mergesort3.Name = "mergesort3";
             this.mergesort3.Size = new System.Drawing.Size(75, 23);
             this.mergesort3.TabIndex = 2;
-            this.mergesort3.Text = "button6";
+            this.mergesort3.Text = "merge sort 3";
             this.mergesort3.UseVisualStyleBackColor = true;
             this.mergesort3.Click += new System.EventHandler(this.mergesort3_Click);
             // 
@@ -380,7 +385,7 @@ namespace zad
             this.mergesort2.Name = "mergesort2";
             this.mergesort2.Size = new System.Drawing.Size(75, 23);
             this.mergesort2.TabIndex = 1;
-            this.mergesort2.Text = "button5";
+            this.mergesort2.Text = "merge sort 2";
             this.mergesort2.UseVisualStyleBackColor = true;
             this.mergesort2.Click += new System.EventHandler(this.mergesort2_Click);
             // 
@@ -390,7 +395,7 @@ namespace zad
             this.mergesort1.Name = "mergesort1";
             this.mergesort1.Size = new System.Drawing.Size(75, 23);
             this.mergesort1.TabIndex = 0;
-            this.mergesort1.Text = "button4";
+            this.mergesort1.Text = "merge sort 1";
             this.mergesort1.UseVisualStyleBackColor = true;
             this.mergesort1.Click += new System.EventHandler(this.mergesort1_Click);
             // 
@@ -402,12 +407,13 @@ namespace zad
             this.sortedDataTextBox.TabIndex = 20;
             this.sortedDataTextBox.Text = "";
             // 
-            // IleSortowan
+            // IleSortowanTextBox
             // 
-            this.IleSortowan.Location = new System.Drawing.Point(427, 297);
-            this.IleSortowan.Name = "IleSortowan";
-            this.IleSortowan.Size = new System.Drawing.Size(100, 20);
-            this.IleSortowan.TabIndex = 21;
+            this.IleSortowanTextBox.Location = new System.Drawing.Point(427, 297);
+            this.IleSortowanTextBox.Name = "IleSortowanTextBox";
+            this.IleSortowanTextBox.Size = new System.Drawing.Size(100, 20);
+            this.IleSortowanTextBox.TabIndex = 21;
+            this.IleSortowanTextBox.Text = "1";
             // 
             // fastestSortLabel
             // 
@@ -418,13 +424,34 @@ namespace zad
             this.fastestSortLabel.TabIndex = 22;
             this.fastestSortLabel.Text = "label4";
             // 
+            // labelIloscPowtorzen
+            // 
+            this.labelIloscPowtorzen.AutoSize = true;
+            this.labelIloscPowtorzen.Location = new System.Drawing.Point(532, 303);
+            this.labelIloscPowtorzen.Name = "labelIloscPowtorzen";
+            this.labelIloscPowtorzen.Size = new System.Drawing.Size(80, 13);
+            this.labelIloscPowtorzen.TabIndex = 23;
+            this.labelIloscPowtorzen.Text = "Amount of sorts";
+            // 
+            // buttonUnsortedData
+            // 
+            this.buttonUnsortedData.Location = new System.Drawing.Point(35, 287);
+            this.buttonUnsortedData.Name = "buttonUnsortedData";
+            this.buttonUnsortedData.Size = new System.Drawing.Size(75, 50);
+            this.buttonUnsortedData.TabIndex = 24;
+            this.buttonUnsortedData.Text = "Click me to see unsorted data";
+            this.buttonUnsortedData.UseVisualStyleBackColor = true;
+            this.buttonUnsortedData.Click += new System.EventHandler(this.buttonUnsortedData_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 353);
+            this.Controls.Add(this.buttonUnsortedData);
+            this.Controls.Add(this.labelIloscPowtorzen);
             this.Controls.Add(this.fastestSortLabel);
-            this.Controls.Add(this.IleSortowan);
+            this.Controls.Add(this.IleSortowanTextBox);
             this.Controls.Add(this.sortedDataTextBox);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -479,14 +506,16 @@ namespace zad
         private System.Windows.Forms.Button mergesort2;
         private System.Windows.Forms.Button mergesort1;
         private System.Windows.Forms.TextBox textboxAmountOfNumbers;
-        private System.Windows.Forms.TextBox min;
-        private System.Windows.Forms.TextBox max;
+        private System.Windows.Forms.TextBox minTextBox;
+        private System.Windows.Forms.TextBox maxTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelIloscLiczb;
         private System.Windows.Forms.RichTextBox sortedDataTextBox;
-        private System.Windows.Forms.TextBox IleSortowan;
+        private System.Windows.Forms.TextBox IleSortowanTextBox;
         private System.Windows.Forms.Label fastestSortLabel;
+        private System.Windows.Forms.Label labelIloscPowtorzen;
+        private System.Windows.Forms.Button buttonUnsortedData;
     }
 }
 

@@ -10,32 +10,35 @@ namespace zad
 {
     public class QuickSortFuncs
     {
-        public static void quickSort1(ref int[] tab, int lewy, int prawy)
+        public static void quickSort1(ref int[] tab, int indexLow, int indexHigh)
         {
-
-            if (prawy <= lewy) return;
-
-            int i = lewy - 1, j = -1+ prawy,
-              pivot = tab[(lewy + prawy) / 2];
-
-            while (true)
+            try
             {
+                if (indexLow >= indexHigh || indexLow < 0 || indexHigh < 0)
+                {
+                    return;
+                }
 
-                while (pivot > tab[++i]) ;
+                int pivot = tab[indexLow];
 
-                while (pivot < tab[--j]) ;
+                int lowerNumbersEndIndex = indexLow + 1;
 
-                if (i <= j)
+                for (int iterator = indexLow + 1; iterator <= indexHigh; iterator++)
+                {
 
-                    (tab[i], tab[j]) = (tab[j], tab[i]);
-                else
-                    break;
+                    if (tab[iterator] <= pivot)
+                    {
+                        (tab[lowerNumbersEndIndex], tab[iterator]) = (tab[iterator], tab[lowerNumbersEndIndex]);
+                        lowerNumbersEndIndex++;
+                    }
+                }
+
+                (tab[indexLow], tab[lowerNumbersEndIndex - 1]) = (tab[lowerNumbersEndIndex - 1], tab[indexLow]);
+
+                quickSort1(ref tab, indexLow, lowerNumbersEndIndex - 2);
+                quickSort1(ref tab, lowerNumbersEndIndex, indexHigh);
             }
-
-            if (j > lewy)
-                quickSort1(ref tab, lewy, j);
-            if (i < prawy)
-                quickSort1(ref tab, i, prawy);
+            catch (Exception r) { }
 
         }
         public static void quickSort2(ref int[] tab, int left, int right)

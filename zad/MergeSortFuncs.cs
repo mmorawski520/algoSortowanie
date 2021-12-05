@@ -106,8 +106,8 @@ namespace zad
         }
         public static void merge3(int[] tablica, int start, int srodek, int koniec)
         {
-            int[] tab_pom = new int[(koniec - start) + 1]; 
-            int i = start, j = srodek + 1, k = 0; 
+            int[] tab_pom = new int[(koniec - start) + 1];
+            int i = start, j = srodek + 1, k = 0;
 
             while (i <= srodek && j <= koniec)
             {
@@ -185,39 +185,29 @@ namespace zad
             }
         }
 
-        public static string mergeSort1(int[] arr, int l, int r, ref int[] sortedArray)
+        public static void mergeSort1(int[] arr, int l, int r, ref int[] sortedArray)
         {
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
+
             sort1(arr, l, r);
-            stopwatch.Stop();
-            sortedArray = arr;
-            return stopwatch.ElapsedMilliseconds.ToString();
+
+            sortedArray = arr; ;
         }
-        public static string mergeSort2(int[] array, int l, int r, ref int[] sortedArray)
+        public static void mergeSort2(int[] array, int l, int r, ref int[] sortedArray)
         {
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
+
             sort2(array, l, r);
-            stopwatch.Stop();
+
             sortedArray = array;
-            return stopwatch.ElapsedMilliseconds.ToString();
 
         }
 
-        public static string mergeSort3(int[] tablica, int start, int koniec, ref int[] sortedArray)
+        public static void mergeSort3(int[] tablica, int start, int koniec, ref int[] sortedArray)
         {
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
+
             sort3(tablica, start, koniec);
 
-            stopwatch.Stop();
             sortedArray = tablica;
-           
-            
-            return stopwatch.ElapsedMilliseconds.ToString();
-             
-           
+
         }
 
     }
